@@ -25,9 +25,9 @@ public class BoardController {
 		return "/board/list";
 	}
 	@GetMapping("/content_view")
-	public String content_view(@RequestParam("bid")int bno,Model model) {
+	public String content_view(@RequestParam("bid")int bid,Model model) {
 		System.out.println("content_view()..");
-		model.addAttribute("content_view",boardService.get(bno));		
+		model.addAttribute("content_view",boardService.get(bid));		
 		return "/board/content_view";
 	}
 	

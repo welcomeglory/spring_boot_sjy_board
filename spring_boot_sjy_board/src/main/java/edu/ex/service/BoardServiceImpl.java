@@ -23,10 +23,10 @@ public class BoardServiceImpl implements BoardService{
 		return boardMapper.getList();
 	}
 	@Override
-	public BoardVO get(int bno) {
+	public BoardVO get(int bid) {
 		log.info("read..");
 
-		return boardMapper.read(bno);
+		return boardMapper.read(bid);
 	}
 
 	

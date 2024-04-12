@@ -7,7 +7,7 @@ import edu.ex.vo.BoardVO;
 public interface BoardService {
 	
 	List<BoardVO> getList();
-	BoardVO get(int bno);
+	BoardVO get(int bid);
 
 }
 
