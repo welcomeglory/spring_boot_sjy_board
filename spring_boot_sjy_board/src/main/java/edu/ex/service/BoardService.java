@@ -6,7 +6,8 @@ import edu.ex.vo.BoardVO;
 
 public interface BoardService {
 	
-	public List<BoardVO> getList();
-	
+	List<BoardVO> getList();
+	BoardVO get(int bno);
+
 }
 
