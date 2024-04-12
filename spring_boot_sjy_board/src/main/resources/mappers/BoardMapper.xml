@@ -9,4 +9,9 @@
        select * from mvc_board order by bgroup desc, bstep asc
         ]]>
     </select>
+      <select id="read"   resultType="BoardVO" >    
+    <![CDATA[
+      select * from mvc_board where bid=#{bno}
+        ]]>
+    </select>    
 </mapper>
