@@ -12,6 +12,7 @@
       <select id="read"   resultType="BoardVO" >    
     <![CDATA[
       select * from mvc_board where bid=#{bid}
-        ]]>
+        ]]>      
+        
     </select>    
 </mapper>
