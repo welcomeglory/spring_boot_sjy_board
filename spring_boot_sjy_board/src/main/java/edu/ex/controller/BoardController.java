@@ -29,8 +29,7 @@ public class BoardController {
 		System.out.println("content_view()..");
 		model.addAttribute("content_view",boardService.get(bid));		
 		return "/board/content_view";
-	}
-	
+	}	
 }
 
 
