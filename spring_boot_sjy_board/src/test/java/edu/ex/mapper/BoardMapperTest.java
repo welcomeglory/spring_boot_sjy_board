@@ -28,5 +28,10 @@ class BoardMapperTest {
 
 		}
 	}
+	
+	@Test
+	void testRead() {
+		System.out.println(boardMapper.read(26));
+	}
 
 }
