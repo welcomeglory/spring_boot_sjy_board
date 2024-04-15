@@ -25,7 +25,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public BoardVO get(int bid) {
 		log.info("read..");
-
+		boardMapper.uphitBoard(bid);		
 		return boardMapper.read(bid);
 	}
 	@Override
