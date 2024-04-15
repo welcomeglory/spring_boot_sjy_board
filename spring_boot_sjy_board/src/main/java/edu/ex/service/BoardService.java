@@ -9,5 +9,6 @@ public interface BoardService {
 	List<BoardVO> getList();
 	BoardVO get(int bid);
 	int remove(int bid);
+	void writeBoard(BoardVO boardVO);
 }
 
