@@ -14,9 +14,7 @@ public interface BoardMapper {
 	int insertBoard(BoardVO boardVO);
 	int updateBoard(BoardVO boardVO);
 	//댓글관련
-	void updateShape(BoardVO boardVO);
-	void insertReply(BoardVO boardVO);
-
-
+	void updateShape(BoardVO boardVO); //답글위치
+	void insertReply(BoardVO boardVO);//답글등록
 }
 
