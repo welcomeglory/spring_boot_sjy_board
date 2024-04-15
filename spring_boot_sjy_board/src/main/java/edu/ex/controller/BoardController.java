@@ -55,6 +55,19 @@ public class BoardController {
 		boardService.modifyBoard(boardVO);
 		return "redirect:/board/list";
 	}
+	@GetMapping("/reply_view")
+	public String reply_view(BoardVO boardVO,Model model) {
+		System.out.println("reply_view()..");
+		model.addAttribute("reply_view",boardService.get(boardVO.getBid()));		
+
+		return "/board/reply_view";
+	}
+	@PostMapping("/reply")
+	public String reply(BoardVO boardVO,Model model) {
+		System.out.println("reply()..");
+		boardService.writeReply(boardVO);		
+		return "redirect:/board/list";
+	}
 }
 
 
