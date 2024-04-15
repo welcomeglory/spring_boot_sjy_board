@@ -33,7 +33,7 @@ public class BoardController {
 	@GetMapping("/delete")
 	public String remove(@RequestParam("bid") int bid,Model model) {
 		System.out.println("content_view()..");
-		model.addAttribute("remove",boardService.remove(bid));		
+		boardService.remove(bid);
 		return "redirect:/board/list";
 	}	
 }
