@@ -32,9 +32,9 @@
     </update>
      <insert id="insertReply"  parameterType="BoardVO">
     <![CDATA[
-        insert into mvc_board (bId, bname, btitle, bcontent, bhit, bgroup, bstep, bindent) values 
-        (mvc_board_seq.nextval, bname= #{bname}, btitle=#{btitle}, bcontent=#{bcontent}, bhit=#{bhit}, bgroup=#{bgroup}, bstep=#{bstep} ,bindent=#{bindent})
-            ]]>    
+        insert into mvc_board (bId, bname, btitle, bcontent, bgroup, bstep, bindent) values 
+        (mvc_board_seq.nextval, #{bname}, #{btitle}, #{bcontent}, #{bgroup}, #{bstep}, #{bindent})
+     ]]>    
     </insert> 
     
 </mapper>
