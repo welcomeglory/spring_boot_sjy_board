@@ -8,7 +8,6 @@
 <title>게시판 프로젝트</title>
 </head>
 <body>
-	<h1>글작성</h1>
 	<table width="500" border="1">
 		<form action="${pageContext.request.contextPath}/board/modify" method="post">
 			<input type="hidden" name="bid" value="${content_view.bid }">
@@ -21,9 +20,13 @@
 				<td>${content_view.bhit}</td>
 			</tr>
 			<tr>
-				<td>이름</td>
+				<td>작성자</td>
 				<td><input type="text" name="bname"
 					value="${content_view.bname}"></td>
+			</tr>
+			<tr>
+				<td>작성일</td>
+				<td>${content_view.bdate}</td>
 			</tr>
 			<tr>
 				<td>제목</td>
