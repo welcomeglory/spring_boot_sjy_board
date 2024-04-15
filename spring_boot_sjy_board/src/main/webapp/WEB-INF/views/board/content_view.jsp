@@ -10,7 +10,7 @@
 <body>
 	<h1>글작성</h1>
 	<table width="500" border="1">
-		<form action="${pageContext.request.contextPath}/modify" method="post">
+		<form action="${pageContext.request.contextPath}/board/modify" method="post">
 			<input type="hidden" name="bid" value="${content_view.bid }">
 			<tr>
 				<td>번호</td>
