@@ -29,7 +29,7 @@
          </tr>
       </c:forEach>
       <tr>
-         <td colspan="5"><a href="${pageContext.request.contextPath}/write_view">글작성</a></td>
+         <td colspan="5"><a href="${pageContext.request.contextPath}/board/write_view">글작성</a></td>
       </tr>      
    </table>
 </body>
