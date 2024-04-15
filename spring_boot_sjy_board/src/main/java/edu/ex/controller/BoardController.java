@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.ex.service.BoardService;
+import edu.ex.vo.BoardVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -35,7 +37,18 @@ public class BoardController {
 		System.out.println("content_view()..");
 		boardService.remove(bid);
 		return "redirect:/board/list";
-	}	
+	}
+	@GetMapping("/write_view")
+	public String write_view() {
+		System.out.println("write_view()..");
+		return "/board/write_view";
+	}
+	@PostMapping("/write")
+	public String write(BoardVO boardVO, Model model) {
+		System.out.println("writeBoard()..");
+		boardService.writeBoard(boardVO);
+		return "redirect:/board/list";
+	}
 }
 
 
