@@ -12,7 +12,7 @@
 	<table width="500" border="1">
 		<form action="${pageContext.request.contextPath}/board/write" method="post">
 			<tr>
-				<td>이름</td>
+				<td>작성자</td>
 				<td><input type="text" name="bname" size="50"></td>		
 			</tr>
 			<tr>
