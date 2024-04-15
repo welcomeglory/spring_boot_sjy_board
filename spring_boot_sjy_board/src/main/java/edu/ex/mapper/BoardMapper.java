@@ -11,5 +11,7 @@ public interface BoardMapper {
 	List<BoardVO> getList();
 	BoardVO read(int bid);
 	int delete(int bid);
+	int insertBoard(BoardVO boardVO);
+
 }
 
