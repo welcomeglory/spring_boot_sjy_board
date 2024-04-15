@@ -5,15 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MyBatis게시판</title>
 </head>
 <body>
-   <table width="500" cellpadding="0" cellspacing="0" border="1">
-      <tr>
-         <td>번호</td>
-         <td>이름</td>
+   <table width="500" cellpadding="0" cellspacing="0" >
+      <tr align="center">
+         <td>글번호</td>
+         <td>작성자</td>
          <td>제목</td>
-         <td>날짜</td>
+         <td>작성일</td>
          <td>조회수</td>            
       </tr>
       <c:forEach var="board" items="${boards}">
