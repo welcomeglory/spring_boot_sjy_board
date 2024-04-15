@@ -19,4 +19,10 @@
     delete from mvc_board where bid=#{bid}
         ]]>              
     </delete>
+    <insert id="insertBoard" >
+    <![CDATA[
+	insert into mvc_board (bid, bname, btitle, bcontent, bhit, bgroup, bstep, bindent) values 
+	(mvc_board_seq.nextval, #{bname}, #{btitle},#{bcontent}, 0, mvc_board_seq.currval,0,0)
+        ]]>    
+    </insert>
 </mapper>
