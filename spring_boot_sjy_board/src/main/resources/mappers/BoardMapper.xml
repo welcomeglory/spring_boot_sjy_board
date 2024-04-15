@@ -25,4 +25,9 @@
 	(mvc_board_seq.nextval, #{bname}, #{btitle},#{bcontent}, 0, mvc_board_seq.currval,0,0)
         ]]>    
     </insert>
+    <update id="updateBoard">
+    <![CDATA[    
+    update mvc_board set bname= #{bname}, btitle=#{btitle}, bcontent=#{bcontent} where bid=#{bid}
+    ]]>
+    </update>
 </mapper>
