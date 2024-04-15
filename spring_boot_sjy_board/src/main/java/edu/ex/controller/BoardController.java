@@ -49,6 +49,12 @@ public class BoardController {
 		boardService.writeBoard(boardVO);
 		return "redirect:/board/list";
 	}
+	@PostMapping("/modify")
+	public String modify(BoardVO boardVO, Model model) {
+		System.out.println("writeBoard()..");
+		boardService.modifyBoard(boardVO);
+		return "redirect:/board/list";
+	}
 }
 
 
