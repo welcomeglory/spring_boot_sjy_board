@@ -48,8 +48,8 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void writeReply(BoardVO boardVO) {
 		log.info("writeReply..");
-
-		boardMapper.insertReply(boardVO);
+		boardMapper.updateShape(boardVO);//답글의 위치를 먼저 잡아준 후
+		boardMapper.insertReply(boardVO);//답글을 등록한다.
 	}
 
 }
