@@ -29,6 +29,22 @@
 			</tr>
 		</form>
 	</table>
-	
+<script type="text/javascript">
+$(document).ready(function(){
+	  var result = `<c:out value = "${result}"/>`;
+
+	  checkModal(result);
+
+	  function checkModal(result){
+	    if(result === ``){
+	      return;
+	    }
+	    if(parseInt(result)>0){
+	      $(".model-body").html("게시물 " + parseInt(result)+" 번이 등록되었습니다.");
+	    }
+	      $("#myModal").modal("show");    
+	  }
+	});
+</script>
 </body>
 </html>
