@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import edu.ex.page.Criteria;
+import edu.ex.page.PageVO;
 import edu.ex.service.BoardService;
 import edu.ex.vo.BoardVO;
 import lombok.extern.slf4j.Slf4j;
@@ -23,9 +25,26 @@ public class BoardController {
 	@GetMapping("/list")
 	public String list(Model model) {
 		System.out.println("list()..");
+		//getList()
 		model.addAttribute("boards",boardService.getList());		
 		return "/board/list";
 	}
+	
+	//list2받게 되면 Criteria커멘드 객체를 받게 된다.
+	@GetMapping("/list2")
+	public String list2(Criteria criteria, Model model) {
+		System.out.println("list2()..");
+		
+		//getListWithPaging() 1,10 // 1페이지에 10개 가져옴
+		model.addAttribute("boards",boardService.getListWithPaging(criteria));		
+		
+		int total = boardService.getTotal();
+		//페이지 만들기 위한 정보를 가져오는데 PageVO변수를 통해 view로 전달?
+		model.addAttribute("pageMaker", new PageVO(criteria,total));
+		
+		return "/board/list2";
+	}	
+	
 	@GetMapping("/content_view")
 	public String content_view(@RequestParam("bid") int bid,Model model) {
 		System.out.println("content_view()..");
@@ -68,6 +87,7 @@ public class BoardController {
 		boardService.writeReply(boardVO);		
 		return "redirect:/board/list";
 	}
+	
 }
 
 
