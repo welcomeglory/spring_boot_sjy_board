@@ -22,13 +22,13 @@ public class BoardController {
 	@Autowired 
 	BoardService boardService;
 	
-	@GetMapping("/list")
-	public String list(Model model) {
-		System.out.println("list()..");
-		//getList()
-		model.addAttribute("boards",boardService.getList());		
-		return "/board/list";
-	}
+//	@GetMapping("/list")
+//	public String list(Model model) {
+//		System.out.println("list()..");
+//		//getList()
+//		model.addAttribute("boards",boardService.getList());		
+//		return "/board/list";
+//	}
 	//<a href="list2?pageNum=2&amp;amount=10">2</a>
 	//2페이지에 있는 10개
 	//list2받게 되면 Criteria커멘드 객체를 받게 된다.
@@ -56,7 +56,7 @@ public class BoardController {
 	public String remove(@RequestParam("bid") int bid,Model model) {
 		System.out.println("content_view()..");
 		boardService.remove(bid);
-		return "redirect:/board/list";
+		return "redirect:/board/list2";
 	}
 	@GetMapping("/write_view")
 	public String write_view() {
@@ -67,13 +67,13 @@ public class BoardController {
 	public String write(BoardVO boardVO, Model model) {
 		System.out.println("writeBoard()..");
 		boardService.writeBoard(boardVO);
-		return "redirect:/board/list";
+		return "redirect:/board/list2";
 	}
 	@PostMapping("/modify")
 	public String modify(BoardVO boardVO, Model model) {
 		System.out.println("writeBoard()..");
 		boardService.modifyBoard(boardVO);
-		return "redirect:/board/list";
+		return "redirect:/board/list2";
 	}
 	@GetMapping("/reply_view")
 	public String reply_view(BoardVO boardVO,Model model) {
@@ -86,7 +86,7 @@ public class BoardController {
 	public String reply(BoardVO boardVO,Model model) {
 		System.out.println("reply()..");
 		boardService.writeReply(boardVO);		
-		return "redirect:/board/list";
+		return "redirect:/board/list2";
 	}
 	
 }
