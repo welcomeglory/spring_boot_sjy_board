@@ -60,6 +60,13 @@
         ]]>
 	</select>
 	<!-- 게시물 페이징 -->
+	<!--SELECT * FROM (
+    	SELECT ROWNUM AS RNUM, A.* FROM (
+        	SELECT * FROM mvc_board order by bgroup desc, bstep asc
+   		) A WHERE ROWNUM <=20
+	)WHERE RNUM > 10  
+	11번에서 20번 가져옴
+	-->
 	<select id="getListWithPaging" resultType="BoardVO">    
     <![CDATA[
 	SELECT * FROM (
