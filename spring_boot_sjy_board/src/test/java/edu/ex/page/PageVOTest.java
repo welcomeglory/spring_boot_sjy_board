@@ -33,8 +33,16 @@ class PageVOTest {
 		
 		cri.setPageNum(3);
 		cri.setAmount(10);
+				
+		boards = boardMapper.getListWithPaging(cri);
 		
+		for(BoardVO board: boards) {
+			System.out.println(board);
+		}
 		
+		cri.setPageNum(5);
+		cri.setAmount(10);
+				
 		boards = boardMapper.getListWithPaging(cri);
 		
 		for(BoardVO board: boards) {
