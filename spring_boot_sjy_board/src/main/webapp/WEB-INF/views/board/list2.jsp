@@ -15,10 +15,6 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<button type="button" class="btn btn-secondary" >
-		<a href="${pageContext.request.contextPath}/board/write_view"
-			class="text-decoration-none text-white">글작성</a>
-	</button>
 	<table class="table table-hover  text-center">
 		<thead>
 			<tr>
@@ -51,33 +47,36 @@
 			</c:forEach>
 		<tbody>
 	</table>
-
-  <nav aria-label="Page navigation example " >
-  <ul class="pagination justify-content-center">
-   	 <c:if test="${pageMaker.prev}">
-    <li class="page-item">
-      <a class="page-link" href="list2${pageMaker.makeQuery(pageMaker.startPage - 1) }" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    </c:if>    
-    <c:forEach var="idx" begin="${pageMaker.startPage}" end="${pageMaker.endPage}" >
-    <li class="page-item">
-    <a class="page-link" href="list2${pageMaker.makeQuery(idx)}">${idx}</a></li>
-   
-      </c:forEach>   
-       <c:if test="${pageMaker.next && pageMaker.endPage > 0}">    
-    <li class="page-item">    
-      <a class="page-link" href="list2${pageMaker.makeQuery(pageMaker.endPage + 1) }" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-    </c:if>
-    
-  </ul>
-</nav>
-   
- 	
+	<nav aria-label="Page navigation example ">
+		<ul class="pagination justify-content-center">
+			<c:if test="${pageMaker.prev}">
+				<li class="page-item">
+					<a class="page-link" href="list2${pageMaker.makeQuery(pageMaker.startPage - 1) }" aria-label="Previous"> 
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+			</c:if>
+			<c:forEach var="idx" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+				<li class="page-item">
+					<a class="page-link" href="list2${pageMaker.makeQuery(idx)}">${idx}</a>
+				</li>
+			</c:forEach>
+			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+				<li class="page-item">
+					<a class="page-link" href="list2${pageMaker.makeQuery(pageMaker.endPage + 1) }" aria-label="Next"> 
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+			</c:if>
+		</ul>
+	</nav>
+	<div class="">
+	<div class="d-flex justify-content-center">
+		<button type="button" class="btn btn-secondary">
+		<a href="${pageContext.request.contextPath}/board/write_view"
+			class="text-decoration-none text-white">글작성</a>
+	</button>
+	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
