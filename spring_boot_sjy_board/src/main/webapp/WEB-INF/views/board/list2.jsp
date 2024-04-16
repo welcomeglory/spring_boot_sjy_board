@@ -15,67 +15,68 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<table class="table table-hover  text-center">
-		<thead>
-			<tr>
-				<th scope="col">글번호</th>
-				<th scope="col">제목</th>
-				<th scope="col">작성자</th>
-				<th scope="col">작성일</th>
-				<th scope="col">조회수</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="board" items="${boards}">
-				<tr>
-					<th scope="row">${board.bid}</th>
-					<td class="text-start"><c:if test="${board.bindent > 0}">
-							<!-- 답글 bindent만큼 띄어쓰기 추가 -->
-							<c:forEach var="i" begin="1" end="${board.bindent}">
+	<div class="d-flex justify-content-center">
+		<div class="col-md-9 contents  ">
+			<table class="table table-hover ">
+				<thead>
+					<tr>
+						<th scope="col">글번호</th>
+						<th scope="col">제목</th>
+						<th scope="col">작성자</th>
+						<th scope="col">작성일</th>
+						<th scope="col">조회수</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="board" items="${boards}">
+						<tr>
+							<th scope="row">${board.bid}</th>
+							<td class="text-start"><c:if test="${board.bindent > 0}">
+									<!-- 답글 bindent만큼 띄어쓰기 추가 -->
+									<c:forEach var="i" begin="1" end="${board.bindent}">
 									&nbsp;&nbsp;
 								</c:forEach>
-							<!-- 답글에 아이콘 추가 -->
-							<i class="fa-solid fa-reply fa-rotate-180"></i>
-						</c:if> <a
-						href="${pageContext.request.contextPath}/board/content_view?bid=${board.bid}"
-						class="text-decoration-none text-black"> ${board.btitle} </a></td>
-					<td>${board.bname}</td>
-					<td><fmt:formatDate value="${board.bdate}"
-							pattern="yyyy-MM-dd" /></td>
-					<td>${board.bhit}</td>
-				</tr>
-			</c:forEach>
-		<tbody>
-	</table>
+									<!-- 답글에 아이콘 추가 -->
+									<i class="fa-solid fa-reply fa-rotate-180"></i>
+								</c:if> <a
+								href="${pageContext.request.contextPath}/board/content_view?bid=${board.bid}"
+								class="text-decoration-none text-black"> ${board.btitle} </a></td>
+							<td>${board.bname}</td>
+							<td><fmt:formatDate value="${board.bdate}"
+									pattern="yyyy-MM-dd" /></td>
+							<td>${board.bhit}</td>
+						</tr>
+					</c:forEach>
+				<tbody>
+			</table>
+		</div>
+	</div>
 	<nav aria-label="Page navigation example ">
 		<ul class="pagination justify-content-center">
 			<c:if test="${pageMaker.prev}">
-				<li class="page-item">
-					<a class="page-link" href="list2${pageMaker.makeQuery(pageMaker.startPage - 1) }" aria-label="Previous"> 
-						<span aria-hidden="true">&laquo;</span>
-					</a>
-				</li>
+				<li class="page-item"><a class="page-link"
+					href="list2${pageMaker.makeQuery(pageMaker.startPage - 1) }"
+					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+				</a></li>
 			</c:if>
-			<c:forEach var="idx" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-				<li class="page-item">
-					<a class="page-link" href="list2${pageMaker.makeQuery(idx)}">${idx}</a>
-				</li>
+			<c:forEach var="idx" begin="${pageMaker.startPage}"
+				end="${pageMaker.endPage}">
+				<li class="page-item"><a class="page-link"
+					href="list2${pageMaker.makeQuery(idx)}">${idx}</a></li>
 			</c:forEach>
 			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-				<li class="page-item">
-					<a class="page-link" href="list2${pageMaker.makeQuery(pageMaker.endPage + 1) }" aria-label="Next"> 
-						<span aria-hidden="true">&raquo;</span>
-					</a>
-				</li>
+				<li class="page-item"><a class="page-link"
+					href="list2${pageMaker.makeQuery(pageMaker.endPage + 1) }"
+					aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+				</a></li>
 			</c:if>
 		</ul>
 	</nav>
-	<div class="">
 	<div class="d-flex justify-content-center">
 		<button type="button" class="btn btn-secondary">
-		<a href="${pageContext.request.contextPath}/board/write_view"
-			class="text-decoration-none text-white">글작성</a>
-	</button>
+			<a href="${pageContext.request.contextPath}/board/write_view"
+				class="text-decoration-none text-white">글작성</a>
+		</button>
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
