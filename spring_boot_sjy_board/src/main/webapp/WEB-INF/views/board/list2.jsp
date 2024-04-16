@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div class="d-flex justify-content-center">
-		<div class="col-md-9 contents  ">
+		<div class="col-md-9 contents">
 			<table class="table table-hover ">
 				<thead>
 					<tr>
