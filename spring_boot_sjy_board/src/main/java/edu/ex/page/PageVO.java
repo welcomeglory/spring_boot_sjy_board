@@ -61,15 +61,15 @@ public class PageVO {
 		this.next = this.endPage < realEnd;
 
 	}
-
+	//1페이지의 경우
 	public String makeQuery(int page) {
 		UriComponents uriComponentsBuilder = 
 				UriComponentsBuilder.newInstance()
-				.queryParam("pageNum", page) // pageNum =// 3
-				.queryParam("amount", criteria.getAmount()) // pageNum=3&amount=10
-				.build(); // ?pageNum=3&amount=10
+				.queryParam("pageNum", page) // pageNum = 1
+				.queryParam("amount", criteria.getAmount()) // pageNum=1&amount=10
+				.build(); // ?pageNum=1&amount=10
 
-		return uriComponentsBuilder.toUriString(); // ?pageNum=3&amount=10 리턴
+		return uriComponentsBuilder.toUriString(); // ?pageNum=1&amount=10 리턴
 	}
 
 }
