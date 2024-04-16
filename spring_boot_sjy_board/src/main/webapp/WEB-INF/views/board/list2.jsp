@@ -59,11 +59,13 @@
 					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 				</a></li>
 			</c:if>
+
 			<c:forEach var="idx" begin="${pageMaker.startPage}"
 				end="${pageMaker.endPage}">
 				<li class="page-item"><a class="page-link"
 					href="list2${pageMaker.makeQuery(idx)}">${idx}</a></li>
 			</c:forEach>
+
 			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 				<li class="page-item"><a class="page-link"
 					href="list2${pageMaker.makeQuery(pageMaker.endPage + 1) }"
@@ -84,5 +86,27 @@
 		crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/0fa31147fa.js"
 		crossorigin="anonymous"></script>
+	<script>
+    // 현재 페이지의 정보
+    var currentPage = ${pageMaker.criteria.getPageNum()}; 
+
+    // 각 페이지 링크를 확인하고 활성화/비활성화를 결정하는 함수
+    function setActivePage() {
+        var pageLinks = document.querySelectorAll('.page-link');
+        pageLinks.forEach(function(link) {
+            var pageNumber = parseInt(link.innerHTML); // 페이지 번호를 가져옵니다.
+            if (pageNumber === currentPage) {
+                link.classList.add('active'); // 현재 페이지에 active 클래스 추가
+            } else {
+                link.classList.remove('active'); // 현재 페이지가 아니면 active 클래스 제거
+            }
+        });
+    }
+
+    // 페이지 로드 시 초기화
+    window.onload = function() {
+        setActivePage();
+    };
+</script>
 </body>
 </html>
