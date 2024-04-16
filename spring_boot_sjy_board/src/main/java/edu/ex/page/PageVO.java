@@ -22,7 +22,7 @@ public class PageVO {
 		this.criteria = criteria;
 		this.total = total;
 
-		// ceil : 올림함수
+		// ceil : 소숫점을 올림으로 처리
 		// Math.ceil(.95); // 1
 		// Math.ceil(4); // 4
 		// Math.ceil(7.004); // 8
@@ -37,10 +37,17 @@ public class PageVO {
 		// 현재 페이지가 11일 경우 : Math.ceil(11/10) * 10 = 20 1.1을 올림함
 		// 현재 페이지가 20일 경우 : Math.ceil(20/10) * 10 = 20
 		// 현재 페이지가 21일 경우 : Math.ceil(21/10) * 10 = 30
+		// 페이지 번호가 10개씩 보인다고 가정
 		this.endPage = (int) (Math.ceil(criteria.getPageNum() / 10.0)) * 10;
+		// 화면에 10개씩 보여준다면 시작 번호는 무조건 끝 번호 에서 9라는 값을 뺀 값이 됩니다.
 		this.startPage = this.endPage - 9;
 
 		// Total을 통한 endPage의 재계산
+		//	 실제 끝 번호는 전체 데이터 수(total) 에 의해서 영향을 받습니다.
+		//	 끝 번호와 한 페이지당 출력되는 데이터 수(amount) 의 곱이 
+		//	 전체 데이터 수(total) 보다 크다면 끝 번호는 total 을 이용해서 다시 계산되어야 합니다.
+		// 전체 데이터 수를 이용해서 진짜 끝 페이지가 몇 번까지 되는지 계산합니다.
+		// 실제 끝 페이지가 구해둔 끝 번호보다 작다면 끝 번호는 realEnd 값이 되어야 합니다.
 		// 10개씩 보여주는 경우 전체 데이터 수가 80개라고 가정하면 끝번호는 10이 아닌 8이 됨.
 		int realEnd = (int) (Math.ceil((total) * 1.0) / criteria.getAmount());
 
