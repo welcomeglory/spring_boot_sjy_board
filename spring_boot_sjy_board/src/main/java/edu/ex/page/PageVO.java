@@ -13,6 +13,12 @@ public class PageVO {
 	
 	private boolean pre, next; //이전과 다음으로 이동가능한 링크 표시
 	private int total;//전체 게시판 글 수
+	private Criteria criteria;
+	
+	public PageVO(Criteria criteria, int total) {
+		this.criteria = criteria;
+		this.total = total;		
+	}
 	
 	
 }
