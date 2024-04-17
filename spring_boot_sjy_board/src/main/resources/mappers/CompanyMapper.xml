@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.ex.mapper.CompanyMapper">
+	<!--List<DeptVO> 타입은 패키지위치.DeptVO -->
+	<select id="getEmpDept" resultType="EmpDeptVO">    
+    <![CDATA[
+     SELECT E.EMPNO, E.ENAME, E.SAL,E.DEPTNO, D.DNAME FROM EMP E inner join DEPT D on E.DEPTNO=D.DEPTNO    
+        ]]>
+	</select>
+	<!-- EmpVO EmpMap =  new EmpVO()-->
+	<resultMap id="EmpMap" type="EmpVO" >
+		<result property="empno" column="empno"/>	
+		<result property="ename" column="ename"/>		
+		<result property="job" column="job"/>		
+		<result property="mgr" column="mgr"/>		
+		<result property="hiredate" column="hiredate"/>		
+		<result property="sal" column="sal"/>		
+		<result property="comm" column="comm"/>		
+		<result property="deptno" column="deptno"/>					
+	</resultMap>	
+	
+	<!-- id는 개발자가 마음대로 -->	
+	<resultMap id="DeptEmpMap" type="DeptEmpVO" >
+		<!-- DeptEmpVO 변수명 -->
+		<result property="deptno" column="deptno"/>
+		<result property="dname" column="dname"/>
+		<result property="loc" column="loc"/>
+		<collection property="empList" resultMap="EmpMap"/><!-- 1:N관계는 collection// SET LIST QUE MAP 매핑시켜줌 -->
+		<!-- <association property=""></association> 1:1관계는 association//-->
+		
+	</resultMap>
+	
+	<select id="getDeptEmpList" resultMap="DeptEmpMap">    
+    <![CDATA[
+     SELECT E.EMPNO, E.ENAME, E.SAL,E.DEPTNO, D.DNAME FROM EMP E inner join DEPT D on E.DEPTNO=D.DEPTNO    
+        ]]>
+	</select>
+	
+	<!-- id는 개발자가 마음대로 -->	
+	<resultMap id="SalgradeMap" type="SalgradeEmpVO" >
+		<!-- DeptEmpVO 변수명 -->
+		<result property="grade" column="grade"/>
+		<result property="losal" column="losal"/>
+		<result property="hisal" column="hisal"/>
+		<collection property="DeptEmpList" resultMap="DeptEmpMap"/><!-- 1:N관계는 collection// SET LIST QUE MAP 매핑시켜줌 -->
+		<!-- <association property=""></association> 1:1관계는 association//-->
+		
+	</resultMap>
+	
+	<select id="getSalgradeEmpList" resultMap="SalgradeMap">    
+    <![CDATA[
+SELECT E.ENAME, E.JOB, D.DNAME, E.SAL, S.GRADE
+FROM EMP E, DEPT D, SALGRADE S
+WHERE E.DEPTNO=D.DEPTNO
+AND E.SAL BETWEEN S.LOSAL AND S.HISAL
+     ]]>
+	</select>
+	
+
+</mapper>
