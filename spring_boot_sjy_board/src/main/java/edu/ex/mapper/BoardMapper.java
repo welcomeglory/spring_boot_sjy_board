@@ -3,12 +3,17 @@ package edu.ex.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import edu.ex.page.Criteria;
 import edu.ex.vo.BoardVO;
 
 @Mapper
 public interface BoardMapper {
+	
+	@Select("select * from mvc_board order by bgroup desc, bstep asc")
+	List<BoardVO> getList2();//마이바티스 3 문법
+
 	List<BoardVO> getList();
 	void uphitBoard(int bid);
 	BoardVO read(int bid);
