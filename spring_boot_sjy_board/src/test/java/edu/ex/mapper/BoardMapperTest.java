@@ -39,7 +39,7 @@ class BoardMapperTest {
 	void testSelectList2() {
 		for(BoardVO boardVO : boardMapper.getList2() ) {
 			log.info("연결"+boardVO);
-		}
+		}  
 	}
 
 }
