@@ -16,12 +16,12 @@ import lombok.ToString;
 @ToString
 public class EmpVO {
 	// 변수와 변수 각각의 데이터 타입 표시
-	int empno; // NOT NULL NUMBER(4)
-	String ename; // VARCHAR2(10)
-	String job; // VARCHAR2(9)
-	int mgr; // NUMBER(4)
-	Timestamp hiredate; // DATE
-	int sal; // NUMBER(7,2)
-	int comm; // NUMBER(7,2)
-	int deptno; // NUMBER(2)
+	private int empno; // NOT NULL NUMBER(4)
+	private String ename; // VARCHAR2(10)
+	private String job; // VARCHAR2(9)
+	private int mgr; // NUMBER(4)
+	private Timestamp hiredate; // DATE
+	private int sal; // NUMBER(7,2)
+	private int comm; // NUMBER(7,2)
+	private int deptno; // NUMBER(2)
 }
