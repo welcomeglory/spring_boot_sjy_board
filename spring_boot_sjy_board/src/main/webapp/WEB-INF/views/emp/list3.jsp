@@ -15,7 +15,6 @@
 	crossorigin="anonymous">
 </head>
 <body>
-&nbsp;&nbsp;
 	<div class="d-flex justify-content-center">
 		<div class="col-md-2 contents">
 			<table class="table table-hover ">
