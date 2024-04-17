@@ -18,7 +18,7 @@ public class BService1 {
 	
 	public List<BoardVO> selectBoardList() throws Exception{
 		IBDao dao = SqlSession.getMapper(IBDao.class);
-		return dao.listdao();
+		return dao.listDao();
 	}
 	
 	
