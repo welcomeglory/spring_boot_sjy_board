@@ -15,6 +15,7 @@ public class BService2 {
 	private SqlSessionTemplate SqlSession;//마이바티스
 	
 	public List<BoardVO> selectBoardList() throws Exception{
+		//모든 CRUD에 대해 함수를 제공해줌.
 		return SqlSession.selectList("board.selectBoardList");		
 	}	
 }
