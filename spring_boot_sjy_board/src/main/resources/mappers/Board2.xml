@@ -10,5 +10,22 @@
        select * from mvc_board order by bgroup desc, bstep asc
         ]]>
 	</select>
+	
+	<!-- 총 페이지수 -->
+	<select id="getTotal" resultType="int">    
+    <![CDATA[
+      select count(*) from mvc_board
+        ]]>
+	</select>	
+	
+	<select id="selectBoardPagingList" resultType="BoardVO">    
+    <![CDATA[
+    SELECT * FROM (
+    	SELECT ROWNUM AS RNUM, A.* FROM (
+        	SELECT * FROM mvc_board order by bgroup desc, bstep asc
+   		) A WHERE ROWNUM <=#{pageNum}*#{amount}
+	)WHERE RNUM > (#{pageNum}-1)*#{amount}
+        ]]>
+	</select>
 
 </mapper>
