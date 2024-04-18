@@ -16,16 +16,16 @@
 			<td>부서번호</td>
 			<td>부서명</td>			
 		</tr>
-		<c:forEach var="deptList" items="${DeptEmpList}">
+		<c:forEach var="dept" items="${DeptEmps}">
 			<!-- DeptVO 3개 -->
-			<c:forEach var="emp" items="${deptList.empList}">
+			<c:forEach var="emp" items="${dept.empList}">
 				<!-- DeptVO와 조인된 EmpVO -->
 				<tr>
 					<td>${ emp.empno }</td>
 					<td>${ emp.ename }</td>
 					<td>${ emp.sal}</td>
-					<td>${ deptList.deptno }</td>
-					<td>${ deptList.dname }</td>
+					<td>${ dept.deptno }</td>
+					<td>${ dept.dname }</td>
 				</tr>
 			</c:forEach>
 		</c:forEach>
