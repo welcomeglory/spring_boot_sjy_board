@@ -4,11 +4,11 @@
 
 <mapper namespace="edu.ex.mapper.BoardMapper">
 	<!--List<DeptVO> 타입은 패키지위치.DeptVO -->
-	<select id="getList" resultType="BoardVO">    
-    <![CDATA[
-       select * from mvc_board order by bgroup desc, bstep asc
-        ]]>
-	</select>
+		<select id="getList" resultType="BoardVO">    
+	    <![CDATA[
+	       select * from mvc_board order by bgroup desc, bstep asc
+	        ]]>
+		</select>
 
 	<update id="uphitBoard">
     <![CDATA[    
