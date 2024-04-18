@@ -448,15 +448,13 @@
 												<img src="images/home/product${emp.img}.jpg" alt="" />
 												<h2>$${ emp.sal }</h2>
 												<p>${ dept.dname } ${ emp.ename }</p>
-												<a href="#" class="btn btn-default add-to-cart"><i
-													class="fa fa-shopping-cart"></i>Add to cart</a>
+												<a href="#" class="btn btn-default add-to-cart"></i>급여등급 : ${emp.salgrade.grade}급</a>
 											</div>
 											<div class="product-overlay">
 												<div class="overlay-content">
 													<h2>$${ emp.sal }</h2>
 													<p>${ dept.dname } ${ emp.ename }</p>
-													<a href="#" class="btn btn-default add-to-cart"><i
-														class="fa fa-shopping-cart"></i>Add to cart</a>
+													<a href="#" class="btn btn-default add-to-cart"></i>급여등급 : ${emp.salgrade.grade}급</a>
 												</div>
 											</div>
 										</div>
