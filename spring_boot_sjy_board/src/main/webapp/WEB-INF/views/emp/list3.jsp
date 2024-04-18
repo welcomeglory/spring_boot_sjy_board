@@ -28,14 +28,15 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="salgradeList" items="${SalgradeEmptList}">
-						<c:forEach var="DeptEmp" items="${salgradeList.DeptEmpList}">
+					<c:forEach var="dept" items="${DeptEmps}">
+						<!-- DeptVO 3개 -->
+						<c:forEach var="emp" items="${dept.empList}">
 							<tr>
-								<td>${ DeptEmp.ename }</td>
-								<td>${ DeptEmp.job }</td>
-								<td>${ DeptEmp.dname }</td>							
-								<td>${ DeptEmp.sal}</td>
-								<td>${ salgradeList.grade }</td>								
+								<td>${ emp.ename }</td>
+								<td>${ emp.job }</td>
+								<td>${dept.dname }</td>
+								<td>${ emp.sal}</td>
+								<td>${ emp.salgrade.grade }</td>
 							</tr>
 						</c:forEach>
 					</c:forEach>
