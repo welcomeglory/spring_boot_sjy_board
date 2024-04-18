@@ -7,10 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import edu.ex.vo.BoardVO;
 import edu.ex.vo.DeptEmpVO;
 import edu.ex.vo.EmpDeptVO;
-import edu.ex.vo.SalgradeEmpVO;
+import edu.ex.vo.EmpVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -18,32 +17,29 @@ import lombok.extern.slf4j.Slf4j;
 class CompanyMapperTest {
 
 	@Autowired
-	private CompanyMapper  companyMapper;	
-	
+	private CompanyMapper companyMapper;
+
 	@Test
 	void test() {
 		assertNotNull(companyMapper);
 	}
+
 	@Disabled
 	@Test
 	void testgetEmpDept() {
-		for(EmpDeptVO empDeptVO : companyMapper.getEmpDept() ) {
-			log.info("연결"+empDeptVO);
+		for (EmpDeptVO empDeptVO : companyMapper.getEmpDept()) {
+			log.info("연결" + empDeptVO);
 		}
 	}
-	@Disabled
 	@Test
 	void testgetDeptEmpList() {
-		for(DeptEmpVO vo : companyMapper.getDeptEmpList() ) {
-			System.out.println("연결"+vo);
+		System.out.println(companyMapper);
+		System.out.println(companyMapper.getDeptEmpList().size());
+		for (DeptEmpVO vo : companyMapper.getDeptEmpList()) {
+			System.out.println(vo);
+			for (EmpVO emp : vo.getEmpList()) {
+				System.out.println(emp);
+			}
 		}
-	}
-	@Test
-	void testgetSalgradeEmpList() {
-		for(SalgradeEmpVO vo : companyMapper.getSalgradeEmpList() ) {
-			System.out.println("연결"+vo);
-		}
-	}
-	
-
+	}	
 }
