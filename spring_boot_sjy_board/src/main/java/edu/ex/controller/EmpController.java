@@ -26,16 +26,16 @@ public class EmpController {
 	@GetMapping("/list")
 	public String list(Model model) {
 		System.out.println("DeptEmpList()..");
-		model.addAttribute("DeptEmpList",companyService.getDeptEmpList());		
+		model.addAttribute("DeptEmps",companyService.getDeptEmpList());		
 		return "/emp/list";
 	}
-	@GetMapping("/salgrade")
-	public String list2(Model model) {
-		System.out.println("SalgradeEmptList()..");
-		model.addAttribute("SalgradeEmptList",companyService.getSalgradeEmpList());		
-		return "/emp/list3";
-	}
 	
+	@GetMapping("/salgrade")
+	public String list3(Model model) {
+		System.out.println("DeptEmpList()..");
+		model.addAttribute("DeptEmps",companyService.getDeptEmpList());		
+		return "/emp/list3";
+	}	
 }
 
 
