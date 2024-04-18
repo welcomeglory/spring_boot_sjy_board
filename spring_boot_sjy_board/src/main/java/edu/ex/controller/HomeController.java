@@ -14,13 +14,14 @@ public class HomeController {
 	@Autowired 
 	CompanyService companyService;
 	
-	@GetMapping("/index")
-	public String index(Model model) {
-		System.out.println("index()..");
-		model.addAttribute("DeptEmps",companyService.getDeptEmpList());	
-
-		return "index";
-	}	
+//	@GetMapping("/index")
+//	public String index(Model model) {
+//		System.out.println("index()..");
+//		model.addAttribute("DeptEmps",companyService.getDeptEmpList());	
+//		return "index";
+//	}	
+	
+	
 }
 
 
