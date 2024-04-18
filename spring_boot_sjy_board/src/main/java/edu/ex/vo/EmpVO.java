@@ -26,4 +26,8 @@ public class EmpVO {
 	private int deptno; // NUMBER(2)
 	
 	private SalgradeVO salgrade;//일대일
+	
+	public int getimg() {
+		return (int)(Math.random()*6)+1;
+	}
 }
