@@ -23,14 +23,14 @@
 		and users.username=#{username}
         ]]>
 	</select>
-	
+	<!--User add   -->
 	<insert id="insertUser">
     <![CDATA[
 	insert into users(username,password) 
 	VALUES (#{username},#{password})
         ]]>
 	</insert>
-	
+	<!--Authoruties add  -->
 	<insert id="insertAuthoruties">
     <![CDATA[
 	insert into authorities(username,authority) 
