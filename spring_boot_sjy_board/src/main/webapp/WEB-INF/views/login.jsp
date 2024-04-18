@@ -168,26 +168,20 @@
 				</div>
 				<div class="col-sm-4">
 					<div class="signup-form">
-					
-					
-					<!-- 여기!!!!!!!!!!! -->
-					
+										
 					<!--sign up form-->
 						<h2>New User Signup!</h2>
 						<form action="${pageContext.request.contextPath}/write"  method="post">
 							<input type="text" name="username" placeholder="Name"/>
 							<input type="password" name="password" placeholder="Password"/>
 							<button type="submit" class="btn btn-default">Signup</button>
-						</form>
-						
+						</form>						
 						
 					</div><!--/sign up form-->
 				</div>
 			</div>
 		</div>
-	</section><!--/form-->
-	
-	
+	</section><!--/form-->	
 	<footer id="footer"><!--Footer-->
 		<div class="footer-top">
 			<div class="container">
