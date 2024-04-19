@@ -48,10 +48,11 @@ public class RestBoardController {
    }
    
    @DeleteMapping("/{bid}")
-   public void restDelete(BoardVO boardVO){
+   public String restDelete(BoardVO boardVO){
       log.info("restDelete()..");
       boardService.remove(boardVO.getBid());
-//      return boardService.remove(boardVO.getBid());
+      
+      return "success";
    }
    
    @GetMapping("/start")
