@@ -3,6 +3,8 @@ package edu.ex.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,13 +49,32 @@ public class RestBoardController {
       return boardService.get(boardVO.getBid());
    }
    
-   @DeleteMapping("/{bid}")
-   public String restDelete(BoardVO boardVO){
-      log.info("restDelete()..");
-      boardService.remove(boardVO.getBid());
-      
-      return "success";
-   }
+//   @DeleteMapping("/{bid}")
+//   public String restDelete(BoardVO boardVO){
+//      log.info("restDelete()..");
+//      boardService.remove(boardVO.getBid());
+//      
+//      return "Success";
+//   }
+   
+ @DeleteMapping("/{bid}")
+ public ResponseEntity<String> restDelete(BoardVO boardVO){
+	 ResponseEntity<String> entity = null;
+    log.info("restDelete()..");
+    
+    try {
+    	 boardService.remove(boardVO.getBid());
+    	 //삭제가 성공하면 성공 상태메시지 저장
+    	 entity = new ResponseEntity<String>("SUCCESS",HttpStatus.OK);		
+	} catch (Exception e) {
+		e.printStackTrace();
+		//삭제가 실패하면 실패 상태메시지 저장
+   	 entity = new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);		
+	}
+    return entity;
+ }
+   
+   
    
    @GetMapping("/start")
    public ModelAndView start(ModelAndView mv){
