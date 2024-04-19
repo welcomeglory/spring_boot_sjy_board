@@ -67,7 +67,7 @@
              }
           });
        }
-      deleteBoard(421);
+      deleteBoard(521);
 
 
 
