@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,11 +47,11 @@ public class RestBoardController {
       return boardService.get(boardVO.getBid());
    }
    
-   @GetMapping("/{bid}")
-   public int rest_delete(BoardVO boardVO){
-      log.info("rest_delete()..");
-      
-      return boardService.remove(boardVO.getBid());
+   @DeleteMapping("/{bid}")
+   public void restDelete(BoardVO boardVO){
+      log.info("restDelete()..");
+      boardService.remove(boardVO.getBid());
+//      return boardService.remove(boardVO.getBid());
    }
    
    @GetMapping("/start")
