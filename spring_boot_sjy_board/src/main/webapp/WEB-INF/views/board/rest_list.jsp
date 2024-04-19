@@ -64,9 +64,7 @@
                    htmls += '<td>'+ this.bhit + '</td>';
                    htmls += '<td>'+ '<input id=' + this.bid + " type='button' class='btn_delete' value='삭제'>" + '</td>';
                    htmls += '</tr>';
-            }); //each end
-
-         
+            }); //each end         
 
          htmls+='<tr>';
             htmls+='<td colspan="5"> <a href="${pageContext.request.contextPath}/write_view">글작성</a> </td>';                         
@@ -97,6 +95,7 @@
             url: "${pageContext.request.contextPath}/boards/" + id,
             success: function(result){
                console.log(result);
+               //boardList(); 
             },
             error: function(e){
                console.log(e);
@@ -152,15 +151,22 @@
 		}; 
 		 writeBoard(board);  */
 	//게시글 수정 예제	 
-	 let board = {
+	/*  let board = {
 				bid : 2173,
 				bname : "호박",
 				btitle:"밤고구마",
 				bcontent : "빠염"
 		};
-		modifyBoard(board); 
+		modifyBoard(board);  */
  
+	   $(document).on("click","#list-table .btn_delete",function(){
+	       console.log(this.bid);
+	       deleteBoard($(this).attr("id"));	       
+	        $(this).parent().parent().remove();
+	        
+	       });
    });	
+   
 
 </script>
 </head>
