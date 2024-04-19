@@ -41,15 +41,15 @@
       function makeList(result) {
          let htmls = "";
          
-         $("#list-table").html("");
+        /*  $("#list-table").html("");
          
-         $("<tr>" , {
+          $("<tr>" , {
             html : "<td>" + "번호" + "</td>" +  // 컬럼명들
                   "<td>" + "이름" + "</td>" +
                   "<td>" + "제목" + "</td>" +
                   "<td>" + "날짜" + "</td>" +            
                   "<td>" + "히트" + "</td>"
-         }).appendTo("#list-table") // 이것을 테이블에 붙임
+         }).appendTo("#list-table") // 이것을 테이블에 붙임 */ 
 
           $(result).each(function(){
                htmls += '<tr>';
@@ -165,8 +165,14 @@
 </script>
 </head>
 <body>
-	<table id="list-table" width="500" cellpadding="0" cellspacing="0"
-		border="1">
+	<table id="list-table" width="500" cellpadding="0" cellspacing="0" border="1">
+	<tr>
+	<td>번호</td> 
+	<td>이름</td> 
+	<td>제목</td> 
+	<td>날짜</td> 
+	<td>조회수</td> 
+	</tr>
 	</table>
 </body>
 </html>
