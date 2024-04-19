@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
    /* 
    $.ajax({
@@ -50,10 +51,7 @@
                   "<td>" + "히트" + "</td>"
          }).appendTo("#list-table") // 이것을 테이블에 붙임
 
-         if(result.length < 1){
-            htmls.push("등록된 게시글 없습니다.");
-         }else{
-            $(result).each(function(){
+          $(result).each(function(){
                htmls += '<tr>';
                htmls += '<td>' + this.bid + '</td>';
                htmls += '<td>' + this.bname + '</td>';
@@ -68,7 +66,7 @@
                    htmls += '</tr>';
             }); //each end
 
-         }
+         
 
          htmls+='<tr>';
             htmls+='<td colspan="5"> <a href="${pageContext.request.contextPath}/write_view">글작성</a> </td>';                         
@@ -78,8 +76,9 @@
          
       }
       
-      
-      /* function getBoard(id){
+      boardList(); 
+
+       function getBoard(id){
          $.ajax({
             type:"GET",
             url: "${pageContext.request.contextPath}/boards/" + id,
@@ -103,23 +102,70 @@
                console.log(e);
             }
          });
-      } */
+      } 
       
       //deleteBoard(348);
       
       //getBoard(328);
       //getBoard(347);
       //getBoard(348);
-      boardList();
-
-
-
-   });
+     // boardList();
+     
+       function writeBoard(board){
+          $.ajax({
+             type:"POST",
+             contentType:'application/json; charset=utf-8', 
+             url: "${pageContext.request.contextPath}/boards/",
+             /* js객체를 json으로 보내야함 */
+              data:JSON.stringify(board),
+             success: function(result){
+                console.log(result);       		
+                boardList(); 
+             },
+             error: function(e){
+                console.log(e);
+             }
+          });
+       } 
+	//게시글 수정
+	  function modifyBoard(board){
+         $.ajax({
+            type:"PUT",
+            contentType:'application/json; charset=utf-8', 
+            url: "${pageContext.request.contextPath}/boards/"+board.bid,
+            /* js객체를 json으로 보내야함 */
+             data:JSON.stringify(board),
+            success: function(result){
+               console.log(result);
+       			boardList(); 
+            },
+            error: function(e){
+               console.log(e);
+            }
+         });
+      } 
+	 /*  let board = {
+				bname : "홍길동",
+				btitle : "포스트로 인서트",
+				bcontent : "빠염",
+		}; 
+		 writeBoard(board);  */
+		 
+	 let board = {
+				bid : 2173,
+				bname : "호박",
+				btitle:"밤고구마",
+				bcontent : "빠염"
+		};
+		modifyBoard(board); 
+ 
+   });	
 
 </script>
 </head>
 <body>
-   <table id="list-table" width="500" cellpadding="0" cellspacing="0" border="1">
-   </table>
+	<table id="list-table" width="500" cellpadding="0" cellspacing="0"
+		border="1">
+	</table>
 </body>
 </html>
