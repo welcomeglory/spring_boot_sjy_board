@@ -67,11 +67,8 @@
              }
           });
        }
-      deleteBoard(521);
-
-
-
-
+      deleteBoard(523);
+      
    });
 
 </script>
