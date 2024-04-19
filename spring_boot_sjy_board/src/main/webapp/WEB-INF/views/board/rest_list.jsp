@@ -144,14 +144,14 @@
             }
          });
       } 
-	//게시글 작성
+	//게시글 작성 예제
 	 /*  let board = {
 				bname : "홍길동",
 				btitle : "포스트로 인서트",
 				bcontent : "빠염",
 		}; 
 		 writeBoard(board);  */
-		 
+	//게시글 수정 예제	 
 	 let board = {
 				bid : 2173,
 				bname : "호박",
