@@ -6,6 +6,8 @@ public interface UserService {
 	
 //	public UserVO getUser(String username);
 	
-	public int insertUser(UserVO userVO);
-	public void insertAuthoruties(UserVO userVO);
+//	public int insertUser(UserVO userVO);
+//	public void insertAuthoruties(UserVO userVO);
+	public void addUser(UserVO userVO);
+
 }
