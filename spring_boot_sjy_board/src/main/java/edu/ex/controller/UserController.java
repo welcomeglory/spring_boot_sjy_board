@@ -28,10 +28,11 @@ public class UserController {
 		return "login";
 	}
 	@PostMapping("/write")
-	public String write(UserVO user,Model model) {
+	public String write(UserVO userVO,Model model) {
 		System.out.println("write()..");
-		userService.insertUser(user);	
-		userService.insertAuthoruties(user);	
+//		userService.insertUser(userVO);	
+//		userService.insertAuthoruties(userVO);	
+		userService.addUser(userVO);
 		return "redirect:/index";
 	}	
 }
