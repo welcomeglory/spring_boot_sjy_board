@@ -8,6 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,26 +32,26 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@ RequestMapping("/boards")
+@RequestMapping("/boards")
 public class RestBoardController {
-   
-   @Autowired
-   private BoardService boardService;
-   
-   @GetMapping("/list")
-   public List<BoardVO> list(){
-      log.info("list()..");
-      
-      return boardService.getList();
-   }
-   
-   @GetMapping("/{bid}")
-   public BoardVO restContentView(BoardVO boardVO){
-      log.info("restContentView()..");
-      
-      return boardService.get(boardVO.getBid());
-   }
-   
+
+	@Autowired
+	private BoardService boardService;
+
+	@GetMapping("/list")
+	public List<BoardVO> list() {
+		log.info("list()..");
+
+		return boardService.getList();
+	}
+
+	@GetMapping("/{bid}")
+	public BoardVO restContentView(BoardVO boardVO) {
+		log.info("restContentView()..");
+
+		return boardService.get(boardVO.getBid());
+	}
+
 //   @DeleteMapping("/{bid}")
 //   public String restDelete(BoardVO boardVO){
 //      log.info("restDelete()..");
@@ -56,33 +59,68 @@ public class RestBoardController {
 //      
 //      return "Success";
 //   }
-   
- @DeleteMapping("/{bid}")
- public ResponseEntity<String> restDelete(BoardVO boardVO){
-	 ResponseEntity<String> entity = null;
-    log.info("restDelete()..");
-    
-    try {
-    	 boardService.remove(boardVO.getBid());
-    	 //삭제가 성공하면 성공 상태메시지 저장
-    	 entity = new ResponseEntity<String>("SUCCESS",HttpStatus.OK);		
-	} catch (Exception e) {
-		e.printStackTrace();
-		//삭제가 실패하면 실패 상태메시지 저장
-   	 entity = new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);		
-	}
-    return entity;
- }
-   
-   
-   
-   @GetMapping("/start")
-   public ModelAndView start(ModelAndView mv){
-      log.info("start()..");      
-      mv.setViewName("/board/rest_list");            
-      return mv;
-   }
-   
 
-   
+	@DeleteMapping("/{bid}")
+	public ResponseEntity<String> restDelete(BoardVO boardVO) {
+		ResponseEntity<String> entity = null;
+
+		log.info("restDelete()..");
+
+		try {
+			boardService.remove(boardVO.getBid());
+			// 삭제가 성공하면 성공 상태메시지 저장
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			// 삭제가 실패하면 실패 상태메시지 저장
+			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		// 삭제 처리 HTTP 상태 메시지 리턴
+		return entity;
+	}
+
+	// @RequestBody json을 java객체로 바꿔주는 이노테이션
+	// 게시글 등록
+	@PostMapping("/")
+	public ResponseEntity<String> restWrite(@RequestBody BoardVO boardVO) {
+		ResponseEntity<String> entity = null;
+
+		log.info("restWrite()..");
+
+		try {
+			boardService.writeBoard(boardVO);
+
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+
+	// 게시글 수정
+	@PutMapping("/{bid}")
+	public ResponseEntity<String> restModify(@RequestBody BoardVO boardVO) {
+		ResponseEntity<String> entity = null;
+
+		log.info("restWrite()..");
+
+		try {
+			boardService.modifyBoard(boardVO);
+
+			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+
+	@GetMapping("/start")
+	public ModelAndView start(ModelAndView mv) {
+		log.info("start()..");
+		mv.setViewName("/board/rest_list");
+		return mv;
+	}
+
 }
