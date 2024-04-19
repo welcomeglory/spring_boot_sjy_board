@@ -51,9 +51,24 @@
             }
          });
       }
-      getBoard(423);
+  /*     getBoard(423);
       getBoard(555);
-      getBoard(423);
+      getBoard(423); */
+      
+      function deleteBoard(id){
+          $.ajax({
+             type:"DELETE",
+             url: "${pageContext.request.contextPath}/boards/"+id,
+             success: function(result){
+                console.log(result);
+             },
+             error: function(e){
+                console.log(e);
+             }
+          });
+       }
+      deleteBoard(421);
+
 
 
 
