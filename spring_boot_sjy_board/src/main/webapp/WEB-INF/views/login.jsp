@@ -172,6 +172,7 @@
 					<!--sign up form-->
 						<h2>New User Signup!</h2>
 						<form action="${pageContext.request.contextPath}/write"  method="post">
+						<!--  name은 VO와 맞춰줘야함 -->
 							<input type="text" name="username" placeholder="Name"/>
 							<input type="password" name="password" placeholder="Password"/>
 							<button type="submit" class="btn btn-default">Signup</button>
