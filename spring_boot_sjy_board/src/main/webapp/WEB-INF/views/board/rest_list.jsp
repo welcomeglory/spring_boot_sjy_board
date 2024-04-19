@@ -110,7 +110,7 @@
       //getBoard(347);
       //getBoard(348);
      // boardList();
-     
+     //게시글 작성
        function writeBoard(board){
           $.ajax({
              type:"POST",
@@ -144,6 +144,7 @@
             }
          });
       } 
+	//게시글 작성
 	 /*  let board = {
 				bname : "홍길동",
 				btitle : "포스트로 인서트",
