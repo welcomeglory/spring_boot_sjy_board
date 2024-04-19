@@ -24,18 +24,18 @@
         ]]>
 	</select>
 	<!--User add   -->
-	<insert id="insertUser">
+	<!-- <insert id="insertUser">
     <![CDATA[
 	insert into users(username,password) 
 	VALUES (#{username},#{password})
         ]]>
 	</insert>
-	<!--Authoruties add  -->
+	Authoruties add 
 	<insert id="insertAuthoruties">
     <![CDATA[
 	insert into authorities(username,authority) 
 	values(#{username},'ROLE_USER')
         ]]>
-	</insert>
+	</insert> -->
 
 </mapper>
