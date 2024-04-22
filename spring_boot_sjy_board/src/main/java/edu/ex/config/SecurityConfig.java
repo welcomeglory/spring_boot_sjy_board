@@ -2,6 +2,8 @@ package edu.ex.config;
 
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authorization.AuthenticatedAuthorizationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -16,6 +18,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
    public void configure(WebSecurity web) throws Exception {
 	   //web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
       web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/lib/**");
+   }
+   //테스트용 유저 만들기(인메모리 방식)
+   @Override
+   public void configure(AuthenticationManagerBuilder auth) throws Exception {
+	   auth.inMemoryAuthentication()
+	   .withUser("member").password("{noop}member").roles("USER")
+	   .and()
+	   .withUser("admin").password("{noop}admin").roles("ADMIN");
+	 
    }
 
 }
