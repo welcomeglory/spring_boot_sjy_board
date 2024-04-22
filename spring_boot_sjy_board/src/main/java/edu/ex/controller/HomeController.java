@@ -12,16 +12,16 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-public class UserController {
+public class HomeController {
 	@Autowired 
-	UserService userService;
+	private UserService userService;
 	
-	@GetMapping("/index")
-	public String index(Model model) {
-		System.out.println("index()..");
-//		model.addAttribute("DeptEmps",companyService.getDeptEmpList());	
-		return "index";
+	@GetMapping("/")
+	public String home(Model model) {
+		System.out.println("home()..");
+		return "home";
 	}	
+	
 	@GetMapping("/login")
 	public String login() {
 		System.out.println("login()..");

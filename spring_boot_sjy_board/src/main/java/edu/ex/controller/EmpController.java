@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 public class EmpController {
 	
 	@Autowired 
-	CompanyService companyService;
+	private CompanyService companyService;
 	
 	@GetMapping("/list")
 	public String list(Model model) {
