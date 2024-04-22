@@ -26,19 +26,19 @@ let boardService = (function() {
 			}
 		});
 	}
-
-	function getBoard(id) {
-		$.ajax({
-			type : "GET",
-			url : "$/boards/" + id,
-			success : function(result) {
-				console.log(result);
-			},
-			error : function(e) {
-				console.log(e);
-			}
-		});
-	}
+	 function getBoard(id) {
+			$.ajax({
+				type : "GET",
+				url : "/boards/" + id,
+				success : function(result) {
+					console.log(result);
+				},
+				error : function(e) {
+					console.log(e);
+				}
+			});
+		}   
+	
 	function deleteBoard(id) {
 		$.ajax({
 			type : "DELETE",
