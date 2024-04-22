@@ -127,9 +127,9 @@
 		modifyBoard(board);  */
  	// list-table 클릭이벤트
 	    $(document).on("click","#list-table .btn_delete",function(){
-	       deleteBoard($(this).attr("id"));	       
-	        $(this).parent().parent().remove();
-	        
+	       /* deleteBoard($(this).attr("id"));	  */
+	       boardService.del($(this).attr("id"));
+	        $(this).parent().parent().remove();	        
 	       }); 
    });	
 </script>
