@@ -22,6 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
    //테스트용 유저 만들기(인메모리 방식)
    @Override
    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+	   //{noop} 암호화 안된 password를 의미함.
 	   auth.inMemoryAuthentication()
 	   .withUser("member").password("{noop}member").roles("USER")
 	   .and()
