@@ -69,11 +69,11 @@
 	     }
       
 	   boardService.list(makeList);
-		   
-	   //getBoard(1328);
+	  
+	  // getBoard(1327);
 		//deleteBoard(1348);
 	
-	     boardService.get(1327); 
+	      boardService.get(1329);  
 	  /*  boardService.del(1328);  */
 
      //게시글 작성
