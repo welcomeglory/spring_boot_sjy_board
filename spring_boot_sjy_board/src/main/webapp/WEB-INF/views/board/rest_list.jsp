@@ -69,41 +69,13 @@
 	     }
       
 	   boardService.list(makeList);
+		   
+	   //getBoard(1328);
+		//deleteBoard(1348);
+	
+	     boardService.get(1327); 
+	  /*  boardService.del(1328);  */
 
-
-       function getBoard(id){
-         $.ajax({
-            type:"GET",
-            url: "${pageContext.request.contextPath}/boards/" + id,
-            success: function(result){
-               console.log(result);
-            },
-            error: function(e){
-               console.log(e);
-            }
-         });
-      }
-      
-      function deleteBoard(id){
-         $.ajax({
-            type:"DELETE",
-            url: "${pageContext.request.contextPath}/boards/" + id,
-            success: function(result){
-               console.log(result);
-               boardList(); 
-            },
-            error: function(e){
-               console.log(e);
-            }
-         });
-      } 
-      
-      //deleteBoard(348);
-      
-      //getBoard(328);
-      //getBoard(347);
-      //getBoard(348);
-     // boardList();
      //게시글 작성
        function writeBoard(board){
           $.ajax({
