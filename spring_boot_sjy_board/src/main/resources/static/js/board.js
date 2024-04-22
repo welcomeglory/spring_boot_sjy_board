@@ -9,33 +9,62 @@
  * */
 console.log("board 모듈화");
 //boardService는 익명함수
-let boardService =  (function(){l
-	
-	  function boardList(callback){
-	         $.ajax({
-	            type:"GET",
-	            url: "/boards/list",
-	            success: function(result){
-	            	console.log(result);
-	              if(callback){
-	            	  callback(result);
-	              }
-	            },
-	            error: function(e){
-	               console.log(e);
-	            }
-	         });
-	      }
+let boardService = (function() {
+
+	function boardList(callback) {
+		$.ajax({
+			type : "GET",
+			url : "/boards/list",
+			success : function(result) {
+				console.log(result);
+				if (callback) {
+					callback(result);
+				}
+			},
+			error : function(e) {
+				console.log(e);
+			}
+		});
+	}
+
+	function getBoard(id) {
+		$.ajax({
+			type : "GET",
+			url : "$/boards/" + id,
+			success : function(result) {
+				console.log(result);
+			},
+			error : function(e) {
+				console.log(e);
+			}
+		});
+	}
+	function deleteBoard(id) {
+		$.ajax({
+			type : "DELETE",
+			url : "/boards/" + id,
+			success : function(result) {
+				console.log(result);
+				boardList();
+			},
+			error : function(e) {
+				console.log(e);
+			}
+		});
+	}
+
 	return {
-		list:boardList 
+		list : boardList,
+		get : getBoard,
+		del : deleteBoard
 	}//객체
 })();//즉시 실행 : (function(){})();
 
 //위와 똑같은 함수
 /*let boardService =  function(){	
-	return {
-		test:function test(){
-			console.log("테스트입니다");
-		}
-	}
-}*/
+ return {
+ test:function test(){
+ console.log("테스트입니다");
+ }
+ }
+ }*/
