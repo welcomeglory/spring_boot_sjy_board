@@ -10,7 +10,6 @@
 console.log("board 모듈화");
 //boardService는 익명함수
 let boardService = (function() {
-
 	function boardList(callback) {
 		$.ajax({
 			type : "GET",
@@ -26,6 +25,7 @@ let boardService = (function() {
 			}
 		});
 	}
+	
 	 function getBoard(id) {
 			$.ajax({
 				type : "GET",
