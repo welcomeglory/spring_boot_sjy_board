@@ -22,13 +22,13 @@ public class BoardController {
 	@Autowired 
 	BoardService boardService;
 	
-//	@GetMapping("/list")
-//	public String list(Model model) {
-//		System.out.println("list()..");
-//		//getList()
-//		model.addAttribute("boards",boardService.getList());		
-//		return "/board/list";
-//	}
+	@GetMapping("/list")
+	public String list(Model model) {
+		System.out.println("list()..");
+		//getList()
+		model.addAttribute("boards",boardService.getList());		
+		return "/board/list";
+	}
 	//<a href="list2?pageNum=2&amp;amount=10">2</a>
 	//2페이지에 있는 10개
 	//list2받게 되면 Criteria커멘드 객체를 받게 된다.
