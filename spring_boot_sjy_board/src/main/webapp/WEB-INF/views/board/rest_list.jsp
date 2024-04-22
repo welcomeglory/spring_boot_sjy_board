@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/board.js"></script>
+	
 <script type="text/javascript">
    /* 
    $.ajax({
@@ -21,65 +23,53 @@
      error : `에러 발생시 수행할 함수`,
      success : `성공시 수행할 함수`
    }); 
-   */
+   */   
    $(document).ready(function(){
-      
-      function boardList(){
-         $.ajax({
-            type:"GET",
-            url: "${pageContext.request.contextPath}/boards/list",
-            success: function(result){
-/*                console.log(result);
- */               makeList(result);
-            },
-            error: function(e){
-               console.log(e);
-            }
-         });
-      }
-      
-      function makeList(result) {
-         let htmls = "";
-         
-        /*  $("#list-table").html("");
-         
-          $("<tr>" , {
-            html : "<td>" + "번호" + "</td>" +  // 컬럼명들
-                  "<td>" + "이름" + "</td>" +
-                  "<td>" + "제목" + "</td>" +
-                  "<td>" + "날짜" + "</td>" +            
-                  "<td>" + "히트" + "</td>"
-         }).appendTo("#list-table") // 이것을 테이블에 붙임 */ 
-			
-         if(result.length < 1){
-             htmls.push("등록된 게시글 없습니다.");
-          }else{
-          $(result).each(function(){
-               htmls += '<tr>';
-               htmls += '<td>' + this.bid + '</td>';
-               htmls += '<td>' + this.bname + '</td>';
-               htmls += '<td>'               
-               for(var i=0; i < this.bindent; i++) { 
-                     htmls += '-'   
-                 }
-               htmls += '<a href="${pageContext.request.contextPath}/content_view?bid=' + this.bid + '">' + this.btitle + '</a></td>';
-                  htmls += '<td>'+ this.bdate + '</td>'; 
-                   htmls += '<td>'+ this.bhit + '</td>';
-                   htmls += '<td>'+ '<input id=' + this.bid + " type='button' class='btn_delete' value='삭제'>" + '</td>';
-                   htmls += '</tr>';
-            }); //each end
-          }
-         
+	   
+	   /* boardService().test();   */
+	   function makeList(result) {
+	        let htmls = "";
+	        
+	       /*  $("#list-table").html("");
+	        
+	         $("<tr>" , {
+	           html : "<td>" + "번호" + "</td>" +  // 컬럼명들
+	                 "<td>" + "이름" + "</td>" +
+	                 "<td>" + "제목" + "</td>" +
+	                 "<td>" + "날짜" + "</td>" +            
+	                 "<td>" + "히트" + "</td>"
+	        }).appendTo("#list-table") // 이것을 테이블에 붙임 */ 
+				
+	        if(result.length < 1){
+	            htmls.push("등록된 게시글 없습니다.");
+	         }else{
+	         $(result).each(function(){
+	              htmls += '<tr>';
+	              htmls += '<td>' + this.bid + '</td>';
+	              htmls += '<td>' + this.bname + '</td>';
+	              htmls += '<td>'               
+	              for(var i=0; i < this.bindent; i++) { 
+	                    htmls += '-'   
+	                }
+	              htmls += '<a href="${pageContext.request.contextPath}/content_view?bid=' + this.bid + '">' + this.btitle + '</a></td>';
+	                 htmls += '<td>'+ this.bdate + '</td>'; 
+	                  htmls += '<td>'+ this.bhit + '</td>';
+	                  htmls += '<td>'+ '<input id=' + this.bid + " type='button' class='btn_delete' value='삭제'>" + '</td>';
+	                  htmls += '</tr>';
+	           }); //each end
+	         }
+	        
 
-         htmls+='<tr>';
-            htmls+='<td colspan="5"> <a href="${pageContext.request.contextPath}/write_view">글작성</a> </td>';                         
-            htmls+='</tr>';
+	        htmls+='<tr>';
+	           htmls+='<td colspan="5"> <a href="${pageContext.request.contextPath}/write_view">글작성</a> </td>';                         
+	           htmls+='</tr>';
 
-         $("#list-table").append(htmls);
-         
-      }
+	        $("#list-table").append(htmls);
+	        
+	     }
       
-      boardList(); 
+	   boardService.list(makeList);
+
 
        function getBoard(id){
          $.ajax({
@@ -163,19 +153,13 @@
 				bcontent : "빠염"
 		};
 		modifyBoard(board);  */
- 
-	   $(document).on("click","#list-table .btn_delete",function(){
-		   console.log("this : "+this);
-		   console.log("$(this) : "+$(this));
-	       console.log("$(this).attr : "+$(this).attr("id"));// input id=' + this.bid
-	       console.log("$(this).attr : "+$(this).attr("type"));// input id=' + this.bid
-	       console.log("$(this).attr : "+$(this).val());// input id=' + this.bid
+ 	// list-table 클릭이벤트
+	    $(document).on("click","#list-table .btn_delete",function(){
 	       deleteBoard($(this).attr("id"));	       
 	        $(this).parent().parent().remove();
 	        
-	       });
+	       }); 
    });	
-
 </script>
 </head>
 <body>
