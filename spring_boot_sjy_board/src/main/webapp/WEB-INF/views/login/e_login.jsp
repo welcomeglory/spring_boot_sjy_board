@@ -151,21 +151,19 @@
 				
 				<div class="col-sm-4">
 					<div class="signup-form">
-					<c:url value="/login" var="loginUrl" />
-					<!--sign up form-->
-						<h2>New User Signup!</h2>
-						<c:if test="${param.error != null}">
-       					 <p>아이디와 비밀번호가 잘못되었습니다.</p>
-   						 </c:if>
-    					<c:if test="${param.logout != null}">
-       					 <p>로그아웃 하였습니다.</p>
- 						   </c:if>
-						<form action="${loginUrl}"  method="POST">
-							<input type="text"  id="id" name="id" placeholder="Name"/>
-							<input type="password" id="password" name="pw" placeholder="Password"/>
-							<button type="submit" class="btn btn-default">Signup</button>
-						</form>				
-						
+					<c:url value="/login" var = "loginUrl"/>
+					<c:if test="${param.error != null }">
+					<p>아이디와 비밀번호가 잘못되었습니다.</p>
+					</c:if>
+					<c:if test="${param.logout != null }">
+					<p>로그아웃 하였습니다.</p>
+					</c:if>
+					<form action="${loginUrl}" method="POST">
+					<input type = "text" id="id" name="id" placeholder = " Name"/>
+					<input type = "password" id="password" name="pw" placeholder = " Password"/>	
+					<button type="submit" class="btn">Signup</button>				
+					</form>
+											
 						
 					</div><!--/sign up form-->
 				</div>
