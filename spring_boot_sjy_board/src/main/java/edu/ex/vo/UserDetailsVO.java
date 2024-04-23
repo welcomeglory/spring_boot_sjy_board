@@ -24,6 +24,7 @@ public class UserDetailsVO implements UserDetails{
 		this.setPassword(user.getPassword());
 		this.setAuthorities(user);
 	}
+	
 	public void setAuthorities(UserVO userVO) {
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		for(AuthVO authVO : userVO.getAuthList()) {

@@ -37,11 +37,8 @@ class UserMapperTest {
       user.setEnabled("1");
       
       userMapper.insertUser(user);
-      userMapper.insertAuthoruties(user);
+      userMapper.insertAuthoruties(user);    
       
-      
-      
-   }
-   
+   }  
 
 }

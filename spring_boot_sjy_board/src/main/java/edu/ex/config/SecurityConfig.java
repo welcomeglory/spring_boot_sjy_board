@@ -19,10 +19,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	 @Autowired
 	 private CustomUserDetailsService customUserDetailsService;
 	
-/*	이미지(가영이)가 보이지 않는다.
+	 /*	이미지(가영이)가 보이지 않는다.
 	우선 정적파일들은 시큐리티에 적용되지 않도록 아래와 같이 설정을 한다.
-	이제 더이상 리소스파일들은 스프링 시큐리티에서 관리를 하지 않는다.	*/
-	
+	이제 더이상 리소스파일들은 스프링 시큐리티에서 관리를 하지 않는다.	*/	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
@@ -52,11 +51,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	//테스트용 유저 만들기(인메모리 방식)
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
+		System.out.println("configure()..");
 		/*
 		 * auth .inMemoryAuthentication()
 		 * .withUser("member").password("{noop}member").roles("USER") .and()
 		 * .withUser("admin").password("{noop}admin").roles("ADMIN");
 		 */
+		// BCryptPasswordEncoder를 사용하여 비밀번호를 안전하게 해싱합니다.
+	    // 사용자 지정 사용자 세부 정보 서비스(customUserDetailsService)를 지정하고,
+	    // 해당 서비스를 통해 사용자의 인증 정보를 가져온 후 비밀번호를 비교합니다.
 		auth.userDetailsService(customUserDetailsService)
 				.passwordEncoder(new BCryptPasswordEncoder());
 		
