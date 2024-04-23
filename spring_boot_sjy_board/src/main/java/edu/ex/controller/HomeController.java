@@ -21,6 +21,10 @@ public class HomeController {
 		log.info("home()..");
 		return "home";
 	}	
+//	@GetMapping("/index")
+//	public void eshopper() {
+//		log.info("eshopper()..");
+//	}	
 	
 	
 	 @GetMapping("/user/userHome") 
