@@ -19,7 +19,7 @@
 	<select id="getUser" resultMap="UserMap">    
     <![CDATA[
 		select * from users,authorities 
-		where users.username = users.username 
+		where users.username = authorities.username 
 		and users.username=#{username}
         ]]>
 	</select>
