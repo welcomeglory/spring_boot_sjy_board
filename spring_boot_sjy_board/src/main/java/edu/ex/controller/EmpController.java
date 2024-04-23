@@ -11,31 +11,34 @@ import org.springframework.web.bind.annotation.RequestParam;
 import edu.ex.page.Criteria;
 import edu.ex.page.PageVO;
 import edu.ex.service.BoardService;
-import edu.ex.service.CompanyService;
+import edu.ex.service.EmpService;
 import edu.ex.vo.BoardVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/emp/*")
+@RequestMapping("/emp")
 public class EmpController {
-	
-	@Autowired 
-	private CompanyService companyService;
+
+	@Autowired
+	private EmpService empService;
 	
 	@GetMapping("/list")
 	public String list(Model model) {
-		log.info("DeptEmpList()..");
-		model.addAttribute("DeptEmps",companyService.getDeptEmpList());		
-		return "/emp/list";
+		log.info("list()..");
+		
+		model.addAttribute("deptEmps",empService.getDeptEmpList());	
+		
+		return "/emp/empList";
 	}
 	
-	@GetMapping("/salgrade")
-	public String list3(Model model) {
-		log.info("DeptEmpList()..");
-		model.addAttribute("DeptEmps",companyService.getDeptEmpList());		
-		return "/emp/list3";
+	@GetMapping("/index")
+	public String index(Model model) {
+		log.info("index()..");
+		
+		//model.addAttribute("deptEmps",empService.getDeptEmpList());	
+		
+		return "/emp/index";
 	}	
+
 }
-
-
