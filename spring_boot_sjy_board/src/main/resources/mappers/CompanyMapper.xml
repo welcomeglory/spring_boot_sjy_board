@@ -26,7 +26,7 @@
 		<result property="sal" column="sal" />
 		<result property="comm" column="comm" />
 		<result property="deptno" column="deptno" />
-		<association property="salgrade" resultMap="salGradeMap" /><!-- 1:1 -->
+		<association property="salgrade" resultMap="salGradeMap" /><!-- 1 : 1 -->
 	</resultMap>
 
 	<!-- id는 개발자가 마음대로 -->
@@ -35,7 +35,7 @@
 		<result property="deptno" column="deptno" />
 		<result property="dname" column="dname" />
 		<result property="loc" column="loc" />
-		<collection property="empList" resultMap="EmpMap" /><!-- 1:N -->
+		<collection property="empList" resultMap="EmpMap" /><!-- 1 : N  = DeptEmpMap : EmpMap -->
 	</resultMap>
 
 	<select id="getDeptEmpList" resultMap="DeptEmpMap">    
