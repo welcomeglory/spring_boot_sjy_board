@@ -24,6 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	이제 더이상 리소스파일들은 스프링 시큐리티에서 관리를 하지 않는다.	*/	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
+		//Spring Security에서 정적 리소스에 대한 요청을 무시하도록 설정
 		web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
 		web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/lib/**");
 	}
