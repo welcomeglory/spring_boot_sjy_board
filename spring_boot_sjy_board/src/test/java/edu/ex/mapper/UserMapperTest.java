@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import edu.ex.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +28,19 @@ class UserMapperTest {
       assertNotNull(user);
       
       System.out.println(user);
+   }
+   @Test
+   void testInsertUser() {
+      UserVO user = new UserVO();
+      user.setUsername("admin3");
+      user.setPassword(new BCryptPasswordEncoder().encode("admin3"));
+      user.setEnabled("1");
+      
+      userMapper.insertUser(user);
+      userMapper.insertAuthoruties(user);
+      
+      
+      
    }
    
 
