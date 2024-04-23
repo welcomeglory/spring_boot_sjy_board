@@ -40,12 +40,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/admin/**").hasAnyRole("ADMIN")
 		.antMatchers("/**").permitAll();
 		
-		http.formLogin()
-		        .loginPage("/login") //loginPage() 는 말그대로 로그인할 페이지 url 이고
-		        .usernameParameter("id")
-		        .passwordParameter("pw")
-		        .defaultSuccessUrl("/")
-		        .permitAll(); //모든 유저가 로그인 화면은 볼 수 있게 한다
+		http.formLogin() // 폼 기반 로그인 설정 시작
+	    .loginPage("/login") // 로그인 페이지 경로 설정
+	    .usernameParameter("id") // 사용자 이름(아이디) 파라미터 설정
+	    .passwordParameter("pw") // 비밀번호 파라미터 설정
+	    .defaultSuccessUrl("/") // 로그인 성공 시 이동할 기본 URL 설정
+	    .permitAll(); // 로그인 페이지 및 관련 요청에 대한 모든 사용자 접근 허용
 	}
 	
 	//테스트용 유저 만들기(인메모리 방식)
