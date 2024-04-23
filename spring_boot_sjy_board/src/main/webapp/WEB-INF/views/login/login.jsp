@@ -14,6 +14,7 @@
 <c:url value="/login" var="loginUrl" />
 <p>${loginUrl}</p>
 <form:form name="f" action="${loginUrl}" method="POST">
+<!-- 내장객체 param  -->
     <c:if test="${param.error != null}">
         <p>아이디와 비밀번호가 잘못되었습니다.</p>
     </c:if>
