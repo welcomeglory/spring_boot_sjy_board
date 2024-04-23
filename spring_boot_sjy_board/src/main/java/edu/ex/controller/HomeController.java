@@ -18,14 +18,14 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public String home(Model model) {
-		System.out.println("home()..");
+		log.info("home()..");
 		return "home";
 	}	
 	
 	
 	 @GetMapping("/user/userHome") 
 	 public void userHome() {
-		 System.out.println("userHome().."); 
+		 log.info("userHome().."); 
 	 }
 	 
 	
@@ -37,17 +37,17 @@ public class HomeController {
 	
 	@GetMapping("/admin/adminHome")
 	public void adminHome() {
-		System.out.println("adminHome()..");
+		log.info("adminHome()..");
 	}	
 	
-	@GetMapping("/login")
-	public String login() {
-		System.out.println("login()..");
-		return "login";
-	}
+//	@GetMapping("/login")
+//	public String login() {
+//		System.out.println("login()..");
+//		return "login";
+//	}
 	@PostMapping("/write")
 	public String write(UserVO userVO,Model model) {
-		System.out.println("write()..");
+		log.info("write()..");
 //		userService.insertUser(userVO);	
 //		userService.insertAuthoruties(userVO);	
 		userService.addUser(userVO);
