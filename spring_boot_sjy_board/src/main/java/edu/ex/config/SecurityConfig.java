@@ -36,8 +36,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	   	   
 	   http.formLogin()
 	   .loginPage("/login")//logPage()는 말그대로 로그인할 페이지 url이고
-	   .usernameParameter("id")//
-	   .passwordParameter("pw")//
+	   .usernameParameter("id")// <input type="text" id="id" name="id" />
+	   .passwordParameter("pw")// <input type="password" id="password" name="pw"/>
+	   .defaultSuccessUrl("/")//login성공페이지
 	   .permitAll();//모든 유저가 로그인 화면은 볼 수 있게 한다.	   
    }
    
