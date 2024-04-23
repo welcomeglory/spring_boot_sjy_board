@@ -30,8 +30,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	   
 	   //권한설정
 	   http.authorizeRequests()
-	   .antMatchers("/user/**").hasAnyRole("USER")
-	   .antMatchers("/admin/**").hasAnyRole("ADMIN")
+	   .antMatchers("/user/**").hasAnyRole("ROLE_USER")
+	   .antMatchers("/admin/**").hasAnyRole("ROLE_ADMIN")
 	   .antMatchers("/**").permitAll();
 	   	   
 	   http.formLogin()
