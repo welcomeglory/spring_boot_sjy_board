@@ -22,6 +22,24 @@ public class HomeController {
 		return "home";
 	}	
 	
+	
+	 @GetMapping("/user/userHome") 
+	 public void userHome() {
+		 System.out.println("userHome().."); 
+	 }
+	 
+	
+//	@GetMapping("/user/userHome")
+//	public String userHome() {
+//		System.out.println("userHome()..");
+//		return "/user/userHome";
+//	}	
+	
+	@GetMapping("/admin/adminHome")
+	public void adminHome() {
+		System.out.println("adminHome()..");
+	}	
+	
 	@GetMapping("/login")
 	public String login() {
 		System.out.println("login()..");
