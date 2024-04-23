@@ -34,7 +34,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	   .antMatchers("/admin/**").hasAnyRole("ADMIN")
 	   .antMatchers("/**").permitAll();
 	   	   
-	   http.formLogin();//스프링 시큐리티에 있는 기본 로그인 폼을 사용하겠다.
+	   http.formLogin()
+	   .loginPage("/login")//logPage()는 말그대로 로그인할 페이지 url이고
+	   .permitAll();//모든 유저가 로그인 화면은 볼 수 있게 한다.	   
    }
    
    //테스트용 유저 만들기(인메모리 방식)
