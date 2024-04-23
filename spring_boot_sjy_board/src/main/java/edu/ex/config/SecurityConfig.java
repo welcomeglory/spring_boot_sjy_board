@@ -17,8 +17,7 @@ import edu.ex.security.CustomUserDetailsService;
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	 @Autowired
-	 private CustomUserDetailsService customUserDetailsService;
-	
+	 private CustomUserDetailsService customUserDetailsService;	
 	 /*	이미지(가영이)가 보이지 않는다.
 	우선 정적파일들은 시큐리티에 적용되지 않도록 아래와 같이 설정을 한다.
 	이제 더이상 리소스파일들은 스프링 시큐리티에서 관리를 하지 않는다.	*/	
