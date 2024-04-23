@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>로그인 페이지</title>
 </head>
-<!-- 폼 필드에 자동으로 커서가 위치하도록 하는 것 -->
+
 <body onload="document.f.id.focus();">
 
 <h3>아이디와 비밀번호를 입력해주세요.</h3>
@@ -14,8 +14,8 @@
 <c:url value="/login" var="loginUrl" />
 <p>${loginUrl}</p>
 <form:form name="f" action="${loginUrl}" method="POST">
-<!-- 내장객체 param  -->
-    <c:if test="${param.error != null}">
+     <!--  http://localhost:8282/login?error -->
+    <c:if test="${param.error != null}">         
         <p>아이디와 비밀번호가 잘못되었습니다.</p>
     </c:if>
     <c:if test="${param.logout != null}">
