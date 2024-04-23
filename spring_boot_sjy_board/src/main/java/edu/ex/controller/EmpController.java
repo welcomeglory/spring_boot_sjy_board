@@ -25,14 +25,14 @@ public class EmpController {
 	
 	@GetMapping("/list")
 	public String list(Model model) {
-		System.out.println("DeptEmpList()..");
+		log.info("DeptEmpList()..");
 		model.addAttribute("DeptEmps",companyService.getDeptEmpList());		
 		return "/emp/list";
 	}
 	
 	@GetMapping("/salgrade")
 	public String list3(Model model) {
-		System.out.println("DeptEmpList()..");
+		log.info("DeptEmpList()..");
 		model.addAttribute("DeptEmps",companyService.getDeptEmpList());		
 		return "/emp/list3";
 	}	

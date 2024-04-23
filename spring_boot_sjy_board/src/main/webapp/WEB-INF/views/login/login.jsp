@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>로그인 페이지</title>
 </head>
-<!--  -->
+<!-- 폼 필드에 자동으로 커서가 위치하도록 하는 것 -->
 <body onload="document.f.id.focus();">
 
 <h3>아이디와 비밀번호를 입력해주세요.</h3>
@@ -22,11 +22,11 @@
     </c:if>
     <p>
         <label for="username">아이디</label>
-        <input type="text" id="id" name="username" />
+        <input type="text" id="id" name="id" />
     </p>
     <p>
         <label for="password">비밀번호</label>
-        <input type="password" id="password" name="password"/>
+        <input type="password" id="password" name="pw"/>
     </p>
     <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
     <button type="submit" class="btn">로그인</button>

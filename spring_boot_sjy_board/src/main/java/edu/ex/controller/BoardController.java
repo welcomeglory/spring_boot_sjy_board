@@ -24,7 +24,7 @@ public class BoardController {
 	
 	@GetMapping("/list")
 	public String list(Model model) {
-		System.out.println("list()..");
+		log.info("list()..");
 		//getList()
 		model.addAttribute("boards",boardService.getList());		
 		return "/board/list";
@@ -34,7 +34,7 @@ public class BoardController {
 	//list2받게 되면 Criteria커멘드 객체를 받게 된다.
 	@GetMapping("/list2")
 	public String list2(Criteria criteria, Model model) {
-		System.out.println("list2()..");
+		log.info("list2()..");
 		
 		//getListWithPaging() 1,10 // 1페이지에 10개 가져옴
 		model.addAttribute("boards",boardService.getListWithPaging(criteria));		
@@ -48,43 +48,43 @@ public class BoardController {
 	
 	@GetMapping("/content_view")
 	public String content_view(@RequestParam("bid") int bid,Model model) {
-		System.out.println("content_view()..");
+		log.info("content_view()..");
 		model.addAttribute("content_view",boardService.get(bid));		
 		return "/board/content_view";
 	}	
 	@GetMapping("/delete")
 	public String remove(@RequestParam("bid") int bid,Model model) {
-		System.out.println("content_view()..");
+		log.info("content_view()..");
 		boardService.remove(bid);
 		return "redirect:/board/list2";
 	}
 	@GetMapping("/write_view")
 	public String write_view() {
-		System.out.println("write_view()..");
+		log.info("write_view()..");
 		return "/board/write_view";
 	}
 	@PostMapping("/write")
 	public String write(BoardVO boardVO, Model model) {
-		System.out.println("writeBoard()..");
+		log.info("writeBoard()..");
 		boardService.writeBoard(boardVO);
 		return "redirect:/board/list2";
 	}
 	@PostMapping("/modify")
 	public String modify(BoardVO boardVO, Model model) {
-		System.out.println("writeBoard()..");
+		log.info("writeBoard()..");
 		boardService.modifyBoard(boardVO);
 		return "redirect:/board/list2";
 	}
 	@GetMapping("/reply_view")
 	public String reply_view(BoardVO boardVO,Model model) {
-		System.out.println("reply_view()..");
+		log.info("reply_view()..");
 		model.addAttribute("reply_view",boardService.get(boardVO.getBid()));		
 
 		return "/board/reply_view";
 	}
 	@PostMapping("/reply")
 	public String reply(BoardVO boardVO,Model model) {
-		System.out.println("reply()..");
+		log.info("reply()..");
 		boardService.writeReply(boardVO);		
 		return "redirect:/board/list2";
 	}
