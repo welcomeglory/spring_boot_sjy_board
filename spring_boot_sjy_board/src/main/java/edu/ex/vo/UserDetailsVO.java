@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Setter
 public class UserDetailsVO implements UserDetails{
-	
+	//ex)form:사용자정보를 양식에 맞게 저장
 	private String username;
 	private String password;
 	private List<GrantedAuthority> authorities;

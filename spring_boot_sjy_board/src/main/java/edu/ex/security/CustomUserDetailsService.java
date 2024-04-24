@@ -14,7 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-    
+    //UserDetailsVO에서 받은 form에 작성된 정보를 faxservice에 전달
+	//ex)faxservice
     @Autowired
     private UserMapper userMapper; // UserMapper 인터페이스를 자동으로 주입받습니다. 이를 통해 데이터베이스에 대한 쿼리를 수행하여 사용자 정보를 가져올 수 있습니다.
 
