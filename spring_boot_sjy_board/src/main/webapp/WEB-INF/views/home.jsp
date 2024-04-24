@@ -25,6 +25,7 @@
 	<sec:authorize access="hasRole('ROLE_ADMIN')">
 		<p>당신은 어드민입니다.</p>		
 	</sec:authorize>
+		<p><a href="<c:url value="/loginInfo" />">로그인 정보 확인 방법 3가지</a></p>		
 	</sec:authorize>
 		
    <h3>
