@@ -19,6 +19,14 @@ public class UserDetailsVO implements UserDetails{
 	private String password;
 	private List<GrantedAuthority> authorities;
 	
+	//테스트=====================================================
+	private String email = "admin@admin.com";
+	
+	public String getEmail() {
+		return this.email;
+	}
+	//==========================================================
+	
 	public UserDetailsVO(UserVO user) {
 		this.setUsername(user.getUsername());
 		this.setPassword(user.getPassword());
