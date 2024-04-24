@@ -2,6 +2,7 @@ package edu.ex.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import edu.ex.security.CustomUserDetailsService;
 
@@ -47,6 +49,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	    .defaultSuccessUrl("/") // 로그인 성공 시 이동할 기본 URL 설정
 	    .permitAll(); // 로그인 페이지 및 관련 요청에 대한 모든 사용자 접근 허용
 	}
+	// PasswordEncoder 부모, BCryptPasswordEncoder 자식
+	//암호화모듈
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}	
 	
 	//테스트용 유저 만들기(인메모리 방식)
 	@Override
@@ -61,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	    // 사용자 지정 사용자 세부 정보 서비스(customUserDetailsService)를 지정하고,
 	    // 해당 서비스를 통해 사용자의 인증 정보를 가져온 후 비밀번호를 비교합니다.
 		auth.userDetailsService(customUserDetailsService)
-				.passwordEncoder(new BCryptPasswordEncoder());
+				.passwordEncoder(passwordEncoder());
 		
 	}
 }
