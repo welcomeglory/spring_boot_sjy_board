@@ -13,13 +13,20 @@
 
  <p>principal: <sec:authentication property="principal"/></p> <!-- 시큐리티 태그 라이브러리가 있어서 사용가능 -->
  <p> <sec:authentication property="principal.username"/>님 환영합니다.</p><!-- principal.getUsername()호출 -->
-  <p>principal: <sec:authentication property="principal.password"/></p>
-   <p>principal: <sec:authentication property="principal.authorities"/></p>
+ <p>principal: <sec:authentication property="principal.password"/></p>
+ <p>principal: <sec:authentication property="principal.authorities"/></p>
   
-<%-- <p>EmpVO: <sec:authentication property="principal.emp"/></p>
-<p>사용자이름: <sec:authentication property="principal.emp.ename"/></p>
-<p>사용자월급: <sec:authentication property="principal.emp.sal"/></p>
-<p>사용자입사일자: <sec:authentication property="principal.emp.hiredate"/></p> --%>
+  <hr>
+  <h1>스프링 시큐리티 활용</h1>  
+  
+ <p>EmpVO: <sec:authentication property="principal.emp"/></p>
+ <p>사용자이름: <sec:authentication property="principal.emp.ename"/></p>
+ <p>사용자월급: <sec:authentication property="principal.emp.sal"/></p>
+ <p>사용자입사일자: <sec:authentication property="principal.emp.hiredate"/></p> 
+ 
+  <p>장바구니 <sec:authentication property="principal.cart"/></p>
+ <p>상품: <sec:authentication property="principal.cart.product"/></p>
+ <p>갯수: <sec:authentication property="principal.cart.count"/></p>
 
 <p><a href="<c:url value="/" />">홈</a></p>
 </body>
