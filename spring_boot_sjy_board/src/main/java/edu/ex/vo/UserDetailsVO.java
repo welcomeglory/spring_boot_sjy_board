@@ -14,6 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Setter
 public class UserDetailsVO implements UserDetails{
+	//UserDetails은 섹션영역에 저장됨
+	// 섹션 30분동안 메모리 영역에 저장
 	//ex)form:사용자정보를 양식에 맞게 저장
 	private String username;
 	private String password;
@@ -21,16 +23,28 @@ public class UserDetailsVO implements UserDetails{
 	
 	//테스트=====================================================
 	private String email = "admin@admin.com";
+	private EmpVO emp = null;
+	private CartVO cart = new CartVO(); //보통 쇼핑몰화면에서 로그인을 하면 카트(장바구니)가 보인다.
+	
+	public CartVO getCart() {
+		return this.cart;
+	}
+
+	public EmpVO getEmp() {
+		return this.emp;
+	}
 	
 	public String getEmail() {
 		return this.email;
 	}
 	//==========================================================
 	
-	public UserDetailsVO(UserVO user) {
+	public UserDetailsVO(UserVO user, EmpVO empVO) {
 		this.setUsername(user.getUsername());
 		this.setPassword(user.getPassword());
 		this.setAuthorities(user);
+		
+		this.emp = empVO;
 	}
 	
 	public void setAuthorities(UserVO userVO) {
