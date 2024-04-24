@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import edu.ex.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +17,9 @@ class UserMapperTest {
    
    @Autowired
    private UserMapper userMapper;
+   
+   @Autowired
+   private PasswordEncoder passwordEncoder;
    
    @Test
    void testUserMapper() {
@@ -31,14 +35,24 @@ class UserMapperTest {
    }
    @Test
    void testInsertUser() {
+//      UserVO user = new UserVO();
+//      user.setUsername("admin3");
+//      user.setPassword(new BCryptPasswordEncoder().encode("admin3"));
+//      user.setEnabled("1");
+//      
+//      userMapper.insertUser(user);
+//      userMapper.insertAuthoruties(user);    
+
       UserVO user = new UserVO();
-      user.setUsername("admin3");
-      user.setPassword(new BCryptPasswordEncoder().encode("admin3"));
+      user.setUsername("user2");
+      user.setPassword(passwordEncoder.encode("user2"));
       user.setEnabled("1");
       
       userMapper.insertUser(user);
       userMapper.insertAuthoruties(user);    
       
-   }  
+   }
+   
+   
 
 }
