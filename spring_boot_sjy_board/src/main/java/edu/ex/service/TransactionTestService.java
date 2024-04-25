@@ -60,7 +60,7 @@ public class TransactionTestService {
 
 	}
 	
-	@Transactional //롤백
+	@Transactional //롤백 언제? 함수에서 에러가 나면 
 	public void TransactionTest3() {
 		
 		log.info("TransactionTest3()..");
@@ -113,5 +113,39 @@ public class TransactionTestService {
 		 throw new SQLException("SQLException for rollback");
 
 	}
+		//@Transactional의 rollbackFor 옵션을 이용하면 Rollback이 되는 클래스를 지정가능함.
+	   // Exception예외로 롤백을 하려면 다음과 같이 지정하면됩니다. @Transactional(rollbackFor = Exception.class) 
+	   // 여러개의 예외를 지정할 수도 있습니다. @Transactional(rollbackFro = {RuntimeException.class, Exception.class})
+		@Transactional (rollbackFor = Exception.class)//롤백
+		public void TransactionTest6() throws SQLException{
+			
+			log.info("TransactionTest6()..");
+			
+			 BoardVO boardVO = new BoardVO();
+			 boardVO.setBcontent("트랜잭션5");
+			 boardVO.setBname("트랜잭션5");
+			 boardVO.setBtitle("트랜잭션5");
+			
+			 mapper.insertBoard(boardVO);
+			 
+			 throw new SQLException("SQLException for rollback");
+
+		}
+		// 다형성 적용시켜서 
+		@Transactional (rollbackFor = SQLException.class)//롤백
+		public void TransactionTest7() throws SQLException{
+			
+			log.info("TransactionTest7()..");
+			
+			 BoardVO boardVO = new BoardVO();
+			 boardVO.setBcontent("트랜잭션7");
+			 boardVO.setBname("트랜잭션7");
+			 boardVO.setBtitle("트랜잭션7");
+			
+			 mapper.insertBoard(boardVO);
+			 
+			 throw new SQLException("SQLException for rollback");
+
+		}
 }
 
