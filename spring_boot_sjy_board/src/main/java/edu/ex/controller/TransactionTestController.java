@@ -25,13 +25,26 @@ public class TransactionTestController {
 	private TransactionTestService TransactionTestService;
 	
 	@GetMapping("/{num}")
-	public void Transaction(@PathVariable("num")int num) {
+	public String Transaction(@PathVariable("num")int num) {
 		log.info("Transaction().."+num);
 		
 		if(num == 1) {
 		TransactionTestService.TransactionTest1();
 		}
 		
+		if(num == 2) {
+			TransactionTestService.TransactionTest2();
+		}
+		
+		if(num == 3) {
+			TransactionTestService.TransactionTest3();
+		}
+		
+		if(num == 4) {
+			TransactionTestService.TransactionTest4();
+		}
+		
+		return "redirect:/board/list2";
 	}
 	
 }
