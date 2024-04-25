@@ -28,9 +28,9 @@ public class TransactionTestService {
 		 mapper.insertBoard(boardVO);
 		 
 		 BoardVO boardVO2 = new BoardVO();
-		 boardVO.setBcontent("트랜잭션2");
-		 boardVO.setBname("트랜잭션2");
-		 boardVO.setBtitle("트랜잭션2");
+		 boardVO2.setBcontent("트랜잭션2");
+		 boardVO2.setBname("트랜잭션2");
+		 boardVO2.setBtitle("트랜잭션2");
 		
 		 mapper.insertBoard(boardVO2);
 
