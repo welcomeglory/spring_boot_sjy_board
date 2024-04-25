@@ -2,6 +2,7 @@ package edu.ex.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.ex.mapper.BoardMapper;
 import edu.ex.vo.BoardVO;
@@ -14,6 +15,7 @@ public class TransactionTestService {
 	@Autowired
 	private  BoardMapper mapper;
 	
+	@Transactional
 	public void TransactionTest1() {
 		
 		log.info("TransactionTest1()..");
