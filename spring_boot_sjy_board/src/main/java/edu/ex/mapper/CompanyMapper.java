@@ -15,4 +15,5 @@ public interface CompanyMapper {
 	
 	@Select("select * from emp where ename = #{ename}")
 	EmpVO getEmp(String ename);
+	
 }
