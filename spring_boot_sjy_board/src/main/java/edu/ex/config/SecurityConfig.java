@@ -12,7 +12,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import edu.ex.security.CustomNoOpPasswordEncoder;
 import edu.ex.security.CustomUserDetailsService;
+import edu.ex.security.EmpUserDetailsService;
 
 @Configuration
 @EnableWebSecurity // 스프링 시큐리티 필터가 스프링 필터체인에 등록됨
@@ -20,9 +22,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	 @Autowired
 	 private CustomUserDetailsService customUserDetailsService;	
+	 
+	 @Autowired
+	 private EmpUserDetailsService empUserDetailsService;	
+	 
 	 /*	이미지(가영이)가 보이지 않는다.
 	우선 정적파일들은 시큐리티에 적용되지 않도록 아래와 같이 설정을 한다.
 	이제 더이상 리소스파일들은 스프링 시큐리티에서 관리를 하지 않는다.	*/	
+	 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		//Spring Security에서 정적 리소스에 대한 요청을 무시하도록 설정
@@ -53,7 +60,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	//암호화모듈
 	@Bean
 	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
+		//return new BCryptPasswordEncoder();
+		return new CustomNoOpPasswordEncoder();
 	}	
 	
 	//테스트용 유저 만들기(인메모리 방식)
@@ -68,8 +76,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		// BCryptPasswordEncoder를 사용하여 비밀번호를 안전하게 해싱합니다.
 	    // 사용자 지정 사용자 세부 정보 서비스(customUserDetailsService)를 지정하고,
 	    // 해당 서비스를 통해 사용자의 인증 정보를 가져온 후 비밀번호를 비교합니다.
-		auth.userDetailsService(customUserDetailsService)
-				.passwordEncoder(passwordEncoder());
-		
+//		auth.userDetailsService(customUserDetailsService)
+//				.passwordEncoder(passwordEncoder());
+		auth.userDetailsService(empUserDetailsService)
+			.passwordEncoder(passwordEncoder());
 	}
 }
