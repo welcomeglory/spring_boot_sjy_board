@@ -50,6 +50,13 @@ public class TransactionTestController {
 			TransactionTestService.TransactionTest5();
 		}
 		
+		if(num == 6) {
+			TransactionTestService.TransactionTest6();
+		}
+		if(num == 7) {
+			TransactionTestService.TransactionTest7();
+		}
+		
 		return "redirect:/board/list2";
 	}
 	
