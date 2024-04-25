@@ -16,7 +16,7 @@
  <p>principal: <sec:authentication property="principal.password"/></p>
  <p>principal: <sec:authentication property="principal.authorities"/></p>
   
-  <hr>
+   <hr>
   <h1>스프링 시큐리티 활용</h1>  
   
  <p>EmpVO: <sec:authentication property="principal.emp"/></p>
@@ -24,9 +24,9 @@
  <p>사용자월급: <sec:authentication property="principal.emp.sal"/></p>
  <p>사용자입사일자: <sec:authentication property="principal.emp.hiredate"/></p> 
  
-  <p>장바구니 <sec:authentication property="principal.cart"/></p>
+<%--   <p>장바구니 <sec:authentication property="principal.cart"/></p>
  <p>상품: <sec:authentication property="principal.cart.product"/></p>
- <p>갯수: <sec:authentication property="principal.cart.count"/></p>
+ <p>갯수: <sec:authentication property="principal.cart.count"/></p>  --%>
 
 <p><a href="<c:url value="/" />">홈</a></p>
 </body>
