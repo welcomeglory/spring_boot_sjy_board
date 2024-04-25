@@ -1,5 +1,7 @@
 package edu.ex.controller;
 
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +27,7 @@ public class TransactionTestController {
 	private TransactionTestService TransactionTestService;
 	
 	@GetMapping("/{num}")
-	public String Transaction(@PathVariable("num")int num) {
+	public String Transaction(@PathVariable("num")int num) throws SQLException {
 		log.info("Transaction().."+num);
 		
 		if(num == 1) {
@@ -42,6 +44,10 @@ public class TransactionTestController {
 		
 		if(num == 4) {
 			TransactionTestService.TransactionTest4();
+		}
+		
+		if(num == 5) {
+			TransactionTestService.TransactionTest5();
 		}
 		
 		return "redirect:/board/list2";

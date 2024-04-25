@@ -1,5 +1,7 @@
 package edu.ex.service;
 
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -93,6 +95,22 @@ public class TransactionTestService {
 		 mapper.insertBoard(boardVO);
 		 
 		 throw new RuntimeException("RuntimeException for rollback");
+
+	}
+	//CheckedException 테스트(롤백안함)
+	@Transactional //롤백
+	public void TransactionTest5() throws SQLException{
+		
+		log.info("TransactionTest5()..");
+		
+		 BoardVO boardVO = new BoardVO();
+		 boardVO.setBcontent("트랜잭션5");
+		 boardVO.setBname("트랜잭션5");
+		 boardVO.setBtitle("트랜잭션5");
+		
+		 mapper.insertBoard(boardVO);
+		 
+		 throw new SQLException("SQLException for rollback");
 
 	}
 }
