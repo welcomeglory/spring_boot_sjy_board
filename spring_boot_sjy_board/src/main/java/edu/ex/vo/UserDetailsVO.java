@@ -23,7 +23,7 @@ public class UserDetailsVO implements UserDetails{
 	
 	//테스트=====================================================
 	private String email = "admin@admin.com";
-	private EmpVO emp = null;
+	private EmpVO emp = new EmpVO();
 	private CartVO cart = new CartVO(); //보통 쇼핑몰화면에서 로그인을 하면 카트(장바구니)가 보인다.
 	
 	public CartVO getCart() {
