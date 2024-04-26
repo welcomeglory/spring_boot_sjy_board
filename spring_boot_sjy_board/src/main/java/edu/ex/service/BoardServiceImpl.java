@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.ex.mapper.BoardMapper;
 import edu.ex.page.Criteria;
@@ -49,9 +50,11 @@ public class BoardServiceImpl implements BoardService{
 		return boardMapper.updateBoard(boardVO);
 	}
 	
+	@Transactional(rollbackFor = Exception.class)	
 	@Override
 	public void writeReply(BoardVO boardVO) {
 		log.info("writeReply()..");
+		
 		boardMapper.updateShape(boardVO);//답글의 위치를 먼저 잡아준 후
 		boardMapper.insertReply(boardVO);//답글을 등록한다.
 	}
