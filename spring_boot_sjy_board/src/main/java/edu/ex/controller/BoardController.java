@@ -36,7 +36,7 @@ public class BoardController {
 	public String list2(Criteria criteria, Model model) {
 		log.info("list2()..");
 		
-		//getListWithPaging() 1,10 // 1페이지에 10개 가져옴
+		//getListWithPaging() 2,10 // 2페이지에 10개 가져옴
 		model.addAttribute("boards",boardService.getListWithPaging(criteria));		
 		
 		int total = boardService.getTotal();
