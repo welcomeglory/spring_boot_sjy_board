@@ -50,7 +50,7 @@ public class BoardServiceImpl implements BoardService{
 		return boardMapper.updateBoard(boardVO);
 	}
 	
-	@Transactional(rollbackFor = Exception.class)	
+	@Transactional(rollbackFor = Exception.class)//에러 객체를 폴리멀피즘 적용해서 사용해야 함.	
 	@Override
 	public void writeReply(BoardVO boardVO) {
 		log.info("writeReply()..");
