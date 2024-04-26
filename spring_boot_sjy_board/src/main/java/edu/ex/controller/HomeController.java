@@ -48,6 +48,11 @@ public class HomeController {
 		
 		return "index";
 	}
+	@GetMapping("/csrf")
+	public String csrf(Model model) {
+		log.info("csrf()..");
+		return "/board/csrf_delete";
+	}
 	
 }
 
