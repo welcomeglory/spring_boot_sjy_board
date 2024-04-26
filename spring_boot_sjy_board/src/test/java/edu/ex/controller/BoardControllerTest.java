@@ -32,7 +32,6 @@ class BoardControllerTest {
 		.andDo(print());		
 	}
 	
-
 	@Test
 	void testBoard() throws Exception {
 		
@@ -43,8 +42,7 @@ class BoardControllerTest {
 				.param("pageNum", String.valueOf(pageNum)).param("amount", String.valueOf(amount)))
 				.andExpect(MockMvcResultMatchers.status().isOk())
 				.andDo(print());
-	}
-	
+	}	
 	
 	@Test
 	void testBoardJson() throws Exception {
