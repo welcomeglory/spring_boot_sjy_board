@@ -36,5 +36,16 @@ class SecurityControllerTest {
 		.andDo(print());	
 		
 	}
+	
+	@Test
+	@WithMockUser(username="user", password="user", authorities="ROLE_USER")
+	void testUserPage() throws Exception {
 		
+		//사용자 홈
+		mockMvc.perform(MockMvcRequestBuilders.get("/user/userHome"))
+		.andExpect(MockMvcResultMatchers.status().isOk())
+		.andDo(print());	
+		
+	}
+	
 }
