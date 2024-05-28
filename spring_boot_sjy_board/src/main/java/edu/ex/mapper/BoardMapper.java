@@ -26,8 +26,8 @@ public interface BoardMapper {
 	void insertReply(BoardVO boardVO);//답글등록
 	
 	//페이징관련
-	List<BoardVO> getListWithPaging(Criteria cri);
 	int getTotalCount();
+	List<BoardVO> getListWithPaging(Criteria cri);
 	
 }
 

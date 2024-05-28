@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -7,7 +8,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.6.8</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<groupId>edu</groupId>
@@ -19,16 +20,16 @@
 	<properties>
 		<java.version>11</java.version>
 	</properties>
-	
-		<repositories>
+
+	<repositories>
 		<repository>
 			<id>oracle</id>
 			<url>http://www.datanucleus.org/downloads/maven2/</url>
 		</repository>
 	</repositories>
-	
+
 	<dependencies>
-	<!-- SpringWeb (중요) 웹 서비스를 만드는 데 가장 중요한 모듈이다. 내장 톰캣 뿐 아니라 Spring MVC 패턴을 
+		<!-- SpringWeb (중요) 웹 서비스를 만드는 데 가장 중요한 모듈이다. 내장 톰캣 뿐 아니라 Spring MVC 패턴을 
 			구현하는 데 필요한 기능이 대부분 들어있다. REST API서버를 만든다면 필수이다. -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -43,6 +44,8 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+
+		
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -66,55 +69,62 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
-		
-		  <!-- 오라클 JDBC 드라이버 -->
-      <dependency>
-         <groupId>oracle</groupId>
-         <artifactId>ojdbc6</artifactId>
-         <version>11.2.0.3</version>
-      </dependency>	
-      			
-		  <!-- 스프링에서 커넥션풀을 가져오기 위한 라이브러리 -->
-      <dependency>
-         <groupId>org.springframework.boot</groupId>
-         <artifactId>spring-boot-starter-data-jdbc</artifactId>
-      </dependency>
-      
-        <!-- 마이바티스-->
-      <dependency>
-         <groupId>org.mybatis.spring.boot</groupId>
-         <artifactId>mybatis-spring-boot-starter</artifactId>
-         <version>2.1.4</version>
-      </dependency>      
 
-      <!-- log4j 라이브러리 -->   
-      <dependency>
-         <groupId>org.bgee.log4jdbc-log4j2</groupId>
-         <artifactId>log4jdbc-log4j2-jdbc4</artifactId>
-         <version>1.16</version>
-      </dependency>
-      
-      <!-- 스프링시큐리티 -->
-      <!-- main -->
-      <dependency>
-         <groupId>org.springframework.boot</groupId>
-         <artifactId>spring-boot-starter-security</artifactId>
-      </dependency>
-      
-      <!-- test  -->
-      <dependency>
-         <groupId>org.springframework.security</groupId>
-         <artifactId>spring-security-test</artifactId>
-         <scope>test</scope>
-      </dependency>
-      
-      <!-- 스프링 부트에서는  jsp 태그를 지원 하지 않기 때문에 직접 입력 해야야함 -->
-      <!-- tag -->
-      <dependency>
-         <groupId>org.springframework.security</groupId>
-         <artifactId>spring-security-taglibs</artifactId>
-      </dependency>      
-	
+		<!-- 오라클 JDBC 드라이버 -->
+		<dependency>
+			<groupId>oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.3</version>
+		</dependency>
+
+		<!-- 스프링에서 커넥션풀을 가져오기 위한 라이브러리 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
+		</dependency>
+
+		<!-- 마이바티스 -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.1.4</version>
+		</dependency>
+
+		<!-- log4j 라이브러리 -->
+		<dependency>
+			<groupId>org.bgee.log4jdbc-log4j2</groupId>
+			<artifactId>log4jdbc-log4j2-jdbc4</artifactId>
+			<version>1.16</version>
+		</dependency>
+
+		<!-- 스프링시큐리티 -->
+		<!-- main -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!-- test -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- 스프링 부트에서는 jsp 태그를 지원 하지 않기 때문에 직접 입력 해야야함 -->
+		<!-- tag -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

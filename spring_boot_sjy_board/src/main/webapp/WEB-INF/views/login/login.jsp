@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
@@ -29,9 +29,10 @@
         <label for="password">비밀번호</label>
         <input type="password" id="password" name="pw"/>
     </p>
-    <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> form태그없을때 주석풀어줘야함. --%>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> form태그없을때 주석풀어줘야함.
     <button type="submit" class="btn">로그인</button>
 </form:form>
 
 </body>
 </html>
+ --%>
